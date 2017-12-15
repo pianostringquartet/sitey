@@ -10,6 +10,7 @@ const paths = {
   DIST: path.resolve(__dirname, 'dist'),
   SRC: path.resolve(__dirname, 'src'),
   JS: path.resolve(__dirname, 'src/js'),
+  PUBLIC: path.resolve(__dirname, 'public')
 };
 
 // Webpack configuration:
@@ -23,7 +24,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: path.join(paths.SRC, 'index.html'),
+        // template: path.join(paths.SRC, 'index.html'),
+        template: path.join(paths.PUBLIC, 'indexx.html'),
     }),
     new ExtractTextPlugin('style.bundle.css'),
   ],
