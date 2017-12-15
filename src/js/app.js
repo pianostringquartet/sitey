@@ -32,6 +32,54 @@ import '../css/style.css';
 
 // firebase.initializeApp(config);
 
+var database = firebase.database();
+// console.log("typeof(database): ...")
+// console.log(typeof(database))
+
+function addPostToDB(postID, title, content) {
+  database.ref('posts/' + postID).set({
+    title: title,
+    content: content,
+  });
+}
+
+// console.log("Calling addPostToDB...")
+// addPostToDB(0, "First FB DB Post", "This is the content. Nice!")
+
+// console.log("Calling addPostToDB again...")
+// addPostToDB(1, "Second FB DB Post", "werd muh bruh go")
+
+// use postID to construct a path, then "remove node at that path"
+function removePostFromDB(postID) {
+  database.ref('posts/' + postID).remove()
+    .then(function() {
+      console.log("Remove successful")
+    })
+    .catch(function(error) {
+      console.log("Remove failed: " + error.message)
+    })
+}
+// remove() is async? (.then and .catch are for promises...)
+
+// console.log("Calling removePostFromDB again...")
+// removePostFromDB(0)
+
+function retrievePostFromDB(postID) {
+  database.ref('posts/' + postID).once('value')
+      .then(function(snapshot) {
+        console.log("retrievePostFromDB: posts/" + postID)
+        console.log(snapshot.val())
+      })
+      .catch(function(error) {
+        console.log("Retrieval failed: " + error.message)
+      })
+}
+
+retrievePostFromDB(2)
+
+
+
+
 
 const store = createStore(
   reducer,
