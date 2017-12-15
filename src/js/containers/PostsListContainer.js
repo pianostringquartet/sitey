@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import PostsList from '../components/PostsList'
 // import * as PostActions from '../actions'
-import { addPost, updateCurrentPost } from '../actions/PostActions'
+import { updateCurrentPost } from '../actions/PostActions'
 
 // the container for PostsLists (a dumb comp
 // which itself contains 0 or more dumb comp PostItems)
@@ -17,7 +17,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({addPost, updateCurrentPost}, dispatch)
+  actions: bindActionCreators({updateCurrentPost}, dispatch)
 })
 
 // inject the data-domain and the available events

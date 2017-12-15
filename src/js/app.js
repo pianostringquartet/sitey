@@ -7,6 +7,7 @@ import reducer from './reducers';
 import PostsListContainer from './containers/PostsListContainer'
 import CurrentPostContainer from './containers/CurrentPostContainer'
 import Profile from './components/Profile'
+import AddPostContainer from './containers/AddPostContainer'
 
 import '../css/style.css';
 
@@ -29,6 +30,7 @@ export default class PostyApp extends Component {
         <Profile />
         <PostsListContainer />
         <CurrentPostContainer />
+        <AddPostContainer />
 
       </div>
 
