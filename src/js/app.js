@@ -13,7 +13,24 @@ import '../css/style.css';
 
 // import keenImage from '../assets/keen.png';
 
+// var firebase = require("firebase/app");
+// require("firebase/auth");
+// require("firebase/database");
+// require("firebase/storage");
 
+// // Leave out Storage
+// //require("firebase/storage");
+
+// var config = {
+//     apiKey: "AIzaSyBVyfV_ysOYzzBSvxfGlFJrLnXYvf94qCE",
+//     authDomain: "posty-blog-app.firebaseapp.com",
+//     databaseURL: "https://posty-blog-app.firebaseio.com",
+//     projectId: "posty-blog-app",
+//     storageBucket: "posty-blog-app.appspot.com",
+//     messagingSenderId: "983394009155"
+//   };
+
+// firebase.initializeApp(config);
 
 
 const store = createStore(
@@ -26,12 +43,11 @@ export default class PostyApp extends Component {
   render() {
     return (
       <div>
-        {/*Salut ! Je m'appelles l'appli React et Redux !*/}
+        Salut ! C'est l'appli Posty !
         <Profile />
         <PostsListContainer />
         <CurrentPostContainer />
         <AddPostContainer />
-
       </div>
 
     );
@@ -45,4 +61,4 @@ render(
     <PostyApp />
   </Provider>,
   document.getElementById('app')
-    )
+)

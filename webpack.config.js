@@ -25,7 +25,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
         // template: path.join(paths.SRC, 'index.html'),
-        template: path.join(paths.PUBLIC, 'indexx.html'),
+        template: path.join(paths.PUBLIC, 'index.html'),
     }),
     new ExtractTextPlugin('style.bundle.css'),
   ],
