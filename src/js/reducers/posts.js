@@ -1,4 +1,4 @@
-import { ADD_POST, UPDATE_CURRENT_POST } from '../constants/ActionTypes'
+import { ADD_POST, UPDATE_CURRENT_POST, ADD_POSTS, REFRESH_CURRENT_POST } from '../constants/ActionTypes'
 
 
 const initialPosts = {
@@ -22,7 +22,6 @@ const initialPosts = {
   ]
 }
 
-
 // a Reducer receives an action (event),
 // and decides how the store (app-db)
 // will change (or not) in response to the action
@@ -30,16 +29,9 @@ const initialPosts = {
   export default function posts(state = initialPosts, action) {
     switch (action.type) {
 
-      case ADD_POST:
+      case ADD_POSTS:
         return Object.assign({}, state, {
-          posts: [
-            ...state.posts,
-            {
-              id: 3,
-              title: action.title,
-              content: action.content
-            }
-          ]
+          posts: action.posts
         })
 
       case UPDATE_CURRENT_POST:
@@ -47,6 +39,13 @@ const initialPosts = {
           post.id === action.id)[0]
         return Object.assign({}, state, {
           current_post: new_current_post
+        })
+
+      case REFRESH_CURRENT_POST:
+        const refreshed_current_post = state.posts.filter(post =>
+          post.id === state.current_post.id)[0]
+        return Object.assign({}, state, {
+          current_post: refreshed_current_post
         })
 
       default:

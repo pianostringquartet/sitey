@@ -1,90 +1,86 @@
 import React, { Component } from 'react';
+import thunkMiddleware from 'redux-thunk';
 import { render } from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 
 import PostsListContainer from './containers/PostsListContainer'
 import CurrentPostContainer from './containers/CurrentPostContainer'
 import Profile from './components/Profile'
+import ProfileAvatar from './components/ProfileAvatar'
 import AddPostContainer from './containers/AddPostContainer'
+
+
+import { fetchPosts, syncPosts } from './actions/PostActions'
 
 import '../css/style.css';
 
-// import keenImage from '../assets/keen.png';
-
-// var firebase = require("firebase/app");
-// require("firebase/auth");
-// require("firebase/database");
-// require("firebase/storage");
-
-// // Leave out Storage
-// //require("firebase/storage");
-
-// var config = {
-//     apiKey: "AIzaSyBVyfV_ysOYzzBSvxfGlFJrLnXYvf94qCE",
-//     authDomain: "posty-blog-app.firebaseapp.com",
-//     databaseURL: "https://posty-blog-app.firebaseio.com",
-//     projectId: "posty-blog-app",
-//     storageBucket: "posty-blog-app.appspot.com",
-//     messagingSenderId: "983394009155"
-//   };
-
-// firebase.initializeApp(config);
-
-var database = firebase.database();
-// console.log("typeof(database): ...")
-// console.log(typeof(database))
-
-function addPostToDB(postID, title, content) {
-  database.ref('posts/' + postID).set({
-    title: title,
-    content: content,
-  });
-}
-
-// console.log("Calling addPostToDB...")
-// addPostToDB(0, "First FB DB Post", "This is the content. Nice!")
-
-// console.log("Calling addPostToDB again...")
-// addPostToDB(1, "Second FB DB Post", "werd muh bruh go")
-
-// use postID to construct a path, then "remove node at that path"
-function removePostFromDB(postID) {
-  database.ref('posts/' + postID).remove()
-    .then(function() {
-      console.log("Remove successful")
-    })
-    .catch(function(error) {
-      console.log("Remove failed: " + error.message)
-    })
-}
-// remove() is async? (.then and .catch are for promises...)
-
-// console.log("Calling removePostFromDB again...")
-// removePostFromDB(0)
-
-function retrievePostFromDB(postID) {
-  database.ref('posts/' + postID).once('value')
-      .then(function(snapshot) {
-        console.log("retrievePostFromDB: posts/" + postID)
-        console.log(snapshot.val())
-      })
-      .catch(function(error) {
-        console.log("Retrieval failed: " + error.message)
-      })
-}
-
-retrievePostFromDB(2)
-
-
-
-
-
 const store = createStore(
   reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  compose(
+    applyMiddleware(thunkMiddleware),
+    window.devToolsExtension ? window.devToolsExtension() : f => f)
+)
 
+
+// where should a database listener go?
+
+var database = firebase.database();
+
+// var firstPostTitleRef = firebase.database().ref('posts/' + 0 + '/title');
+// firstPostTitleRef.on('value', function(snapshot) {
+//   // updateStarCount(postElement, snapshot.val());
+//   console.log("Listening to changes...")
+//   console.log(snapshot.val())
+// });
+
+// var postsRef = firebase.database().ref('posts/');
+// postsRef.on('value', function(snapshot) {
+//   // updateStarCount(postElement, snapshot.val());
+//   console.log("Listening to changes to any posts...")
+//   console.log(snapshot.val())
+// });
+
+
+// whenever a change happens at the db node,
+// we receive the contents of the db node.
+// (We also receive the contents of the db node when
+//  we first load up.)
+
+// setup listener at Firebase db's 'posts' node
+
+// is this still async?
+// i.e.
+
+// is the first retrieval of the 'posts' node async?
+//  ... I suspect not, bc we're directly querying the db
+
+// are subseq
+
+// i don't think it's async; it's basically,
+// "upon load, and any change, retrieve the node"
+
+// firebase.database().ref('posts/').on('value',
+//   function(snapshot) {
+//     console.log("Listening to changes to any posts...")
+//     console.log(snapshot.val())
+// });
+
+
+// where's the proper place for this initialization logic?
+
+// console.log("About to dispatch fetchPosts")
+// store.dispatch(fetchPosts())
+
+console.log("About to dispatch syncPosts")
+store.dispatch(syncPosts())
+
+
+
+
+// to see store state:
+// console.log(store.getState())
 
 // Main parent comp
 export default class PostyApp extends Component {
@@ -92,10 +88,11 @@ export default class PostyApp extends Component {
     return (
       <div>
         Salut ! C'est l'appli Posty !
-        <Profile />
+        {/*<Profile />*/}
+        <ProfileAvatar />
         <PostsListContainer />
         <CurrentPostContainer />
-        <AddPostContainer />
+        {/*<AddPostContainer />*/}
       </div>
 
     );
