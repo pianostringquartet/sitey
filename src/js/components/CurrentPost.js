@@ -1,24 +1,27 @@
 import React from 'react'
+import { withStyles } from 'material-ui/styles';
 import NavButton from './NavButton'
 
 var marked = require('marked');
 
+// marked produces HTML,
+// which can inherit CSS styling
+const styles = () => ({
+  root: {
+    'font-family': "Helvetica, Arial, sans-serif",
+    'font-size': "16"
+  }
+})
 
-
-// a dumb comp that simply shows the current post
-// this comp receives post id, title, and content
-// and displays it
-
-// i.e. str (in markdown format) to html
+// str (Markdown format) -> str (HTML format)
 const createMarkup = (text) => (
   {__html: marked(text, {sanitize:true})})
 
-const CurrentPost = ({actions, title, content}) => (
-  <div>
+const CurrentPost = ({actions, title, content, classes}) => (
+  <div className={classes.root}>
     <NavButton actions={actions} />
     <h2> {title} </h2>
-    <span dangerouslySetInnerHTML={
-      createMarkup(content)} />
+    <span dangerouslySetInnerHTML={createMarkup(content)} />
   </div>)
 
-export default CurrentPost
+export default withStyles(styles)(CurrentPost);

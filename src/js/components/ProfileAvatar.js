@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import Avatar from 'material-ui/Avatar';
+import Typography from 'material-ui/Typography';
 
 import profileImage from '../../assets/profile_image.jpg';
 
@@ -27,7 +28,11 @@ const ProfileImage = ({classes}) => (
       />
     </div>
     <div className={classes.row}>
-      Contact me: cjc500@nyu.edu
+
+      <Typography>
+        Contact me: cjc500@nyu.edu
+      </Typography>
+
     </div>
   </div>
 )
