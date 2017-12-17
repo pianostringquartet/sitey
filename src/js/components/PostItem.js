@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
+import { ListItem } from 'material-ui/List';
 
-
-// {marked('# Marked in browser\n\nRendered by **marked**.')}
-
-// remember: React comps ALWAYS accept an object,
-// AND they cannot render an object,
-// so just always destructure the passed in object
-const PostItem = ({id, title, content, actions}) => (
-    <li>
-      <a onClick={function () {actions.updateCurrentPost(id)}}>
+// this couples together a Material-UI component with
+// your own events;
+// you probably don't want this
+const PostItem = ({id, title, actions}) => (
+  <ListItem
+    children={
+      // <a onClick={function() {actions.updateCurrentPost(id)}}>
+      <a onClick={function() {actions.updateAndViewCurrentPost(id)}}>
         {title}
-      </a>
-    </li>
-
+      </a>}
+  />
 )
 
 export default PostItem

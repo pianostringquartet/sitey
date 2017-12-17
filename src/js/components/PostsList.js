@@ -1,21 +1,30 @@
-import React from 'react'
-
+import React from 'react';
+import { withStyles } from 'material-ui/styles';
+import List from 'material-ui/List';
 import PostItem from './PostItem'
 
-// will be injected with State and Dispatch logic,
-// i.e. a js object with a key containing posts,
-// and a key containing actions
-const PostsList = ({posts, actions}) => (
-  <div>
-    <ul>
-      {posts.map(post =>
-          <PostItem key={post.id}
-                    id={post.id}
-                    title={post.title}
-                    content={post.content}
-                    actions={actions}/>)}
-    </ul>
-  </div>
+
+const styles = theme => ({
+  root: {
+    width: '100%',
+    maxWidth: 360,
+    background: theme.palette.background.paper,
+  },
+});
+
+
+const PostsList = ({posts, actions, classes}) => (
+    <div className={classes.root}>
+      <List>
+        {posts.map(post =>
+            <PostItem
+              key={post.id}
+              id={post.id}
+              title={post.title}
+              actions={actions}/>)}
+      </List>
+
+    </div>
 )
 
-export default PostsList
+export default withStyles(styles)(PostsList);

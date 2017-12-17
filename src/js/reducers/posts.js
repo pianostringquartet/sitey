@@ -1,14 +1,14 @@
-import { ADD_POST, UPDATE_CURRENT_POST, ADD_POSTS, REFRESH_CURRENT_POST } from '../constants/ActionTypes'
+import { UPDATE_CURRENT_POST,
+         ADD_POSTS,
+         REFRESH_CURRENT_POST } from '../constants/ActionTypes'
 
 
 const initialPosts = {
-
   current_post: {
     id: 2,
     title: "There is no God but God",
     content: "### Mohammend tells us, There is no God but God."
   },
-
   posts: [
     {
       id: 0,
@@ -26,29 +26,29 @@ const initialPosts = {
 // and decides how the store (app-db)
 // will change (or not) in response to the action
 // export default function posts(state = [], action) {
-  export default function posts(state = initialPosts, action) {
-    switch (action.type) {
+export default function posts(state = initialPosts, action) {
+  switch (action.type) {
 
-      case ADD_POSTS:
-        return Object.assign({}, state, {
-          posts: action.posts
-        })
+    case ADD_POSTS:
+      return Object.assign({}, state, {
+        posts: action.posts
+      })
 
-      case UPDATE_CURRENT_POST:
-        const new_current_post = state.posts.filter(post =>
-          post.id === action.id)[0]
-        return Object.assign({}, state, {
-          current_post: new_current_post
-        })
+    case UPDATE_CURRENT_POST:
+      const new_current_post = state.posts.filter(post =>
+        post.id === action.id)[0]
+      return Object.assign({}, state, {
+        current_post: new_current_post
+      })
 
-      case REFRESH_CURRENT_POST:
-        const refreshed_current_post = state.posts.filter(post =>
-          post.id === state.current_post.id)[0]
-        return Object.assign({}, state, {
-          current_post: refreshed_current_post
-        })
+    case REFRESH_CURRENT_POST:
+      const refreshed_current_post = state.posts.filter(post =>
+        post.id === state.current_post.id)[0]
+      return Object.assign({}, state, {
+        current_post: refreshed_current_post
+      })
 
-      default:
-        return state
-      }
+    default:
+      return state
+  }
 }
