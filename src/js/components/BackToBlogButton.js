@@ -8,7 +8,7 @@ const styles = theme => ({
   },
 });
 
-const NavButton = ({classes, actions}) => (
+const BackToBlogButton = ({classes, actions}) => (
   <Button color="primary"
           className={classes.button}
           onClick={function() {actions.changePanel('BLOG_PANEL')}}>
@@ -16,4 +16,4 @@ const NavButton = ({classes, actions}) => (
   </Button>
 )
 
-export default withStyles(styles)(NavButton)
+export default withStyles(styles)(BackToBlogButton)

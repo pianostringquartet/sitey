@@ -2,8 +2,7 @@ import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Drawer from '../components/Drawer'
-// import * as PostActions from '../actions'
-// import { changePanel } from '../actions/NavigationActions'
+
 import { changePanel } from '../actions/PostActions'
 
 

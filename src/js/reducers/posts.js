@@ -43,11 +43,6 @@ export default function posts(state = initialPosts, action) {
         ]
       })
 
-    case ADD_POSTS:
-      return Object.assign({}, state, {
-        posts: action.posts
-      })
-
     case UPDATE_CURRENT_POST:
       const new_current_post = state.posts.filter(post =>
         post.id === action.id)[0]

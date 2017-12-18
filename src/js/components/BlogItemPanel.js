@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from 'material-ui/styles';
-import NavButton from './NavButton'
+import BackToBlogButton from './BackToBlogButton'
 
 var marked = require('marked');
 
@@ -53,7 +53,7 @@ const createMarkup = (text) => (
 
 const CurrentPost = ({actions, title, content, classes}) => (
   <div className={classes.root}>
-    <NavButton actions={actions} />
+    <BackToBlogButton actions={actions} />
     <h2> {title} </h2>
     <span
       dangerouslySetInnerHTML={createMarkup(content)}

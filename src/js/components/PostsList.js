@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from 'material-ui/styles';
-import List from 'material-ui/List';
-import PostItem from './PostItem'
+import List, { ListItem } from 'material-ui/List';
 
 
 const styles = theme => ({
@@ -12,6 +11,15 @@ const styles = theme => ({
   },
 });
 
+const PostItem = ({id, title, actions}) => (
+  <ListItem
+    children={
+      // <a onClick={function() {actions.updateCurrentPost(id)}}>
+      <a onClick={function() {actions.updateAndViewCurrentPost(id)}}>
+        {title}
+      </a>}
+  />
+)
 
 const PostsList = ({posts, actions, classes}) => (
     <div className={classes.root}>
@@ -23,7 +31,6 @@ const PostsList = ({posts, actions, classes}) => (
               title={post.title}
               actions={actions}/>)}
       </List>
-
     </div>
 )
 

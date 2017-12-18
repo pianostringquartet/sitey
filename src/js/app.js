@@ -6,18 +6,14 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from './reducers';
 
-import PostsListContainer from './containers/PostsListContainer'
-import CurrentPostContainer from './containers/CurrentPostContainer'
-import Profile from './components/Profile'
-import ProfileAvatar from './components/ProfileAvatar'
-import Drawer from './components/Drawer'
-
-// import DrawerContainer from './containers/DrawerContainer'
-import DrawerContainer from 'containers/DrawerContainer'
-
 import { syncPosts } from './actions/PostActions'
 
-// import '../css/style.css';
+import PostsListContainer from './containers/PostsListContainer'
+
+import ProfileAvatar from './components/ProfileAvatar'
+import DrawerContainer from 'containers/DrawerContainer'
+
+
 
 const store = createStore(
   reducer,
@@ -34,10 +30,6 @@ store.dispatch(syncPosts())
 // Main parent component
 const PostyApp = () => (
   <div>
-    {/*<ProfileAvatar />*/}
-    {/*<PostsListContainer />*/}
-    {/*<CurrentPostContainer />*/}
-    {/*<Drawer />*/}
     <DrawerContainer />
   </div>
 )
