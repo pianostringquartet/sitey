@@ -57,11 +57,18 @@ module.exports = {
         extensions: ['.jsx', '.js'],
         alias: {
             // for shorter import references
-            components: path.resolve(__dirname, 'src', 'js', 'components'),
-            containers: path.resolve(__dirname, 'src', 'js', 'containers'),
             actions: path.resolve(__dirname, 'src', 'js', 'actions'),
             constants: path.resolve(__dirname, 'src', 'js', 'constants'),
             reducers: path.resolve(__dirname, 'src', 'js', 'reducers'),
+
+            components: path.resolve(__dirname, 'src', 'js', 'components'),
+
+            panels: path.resolve(__dirname, 'src', 'js', 'components', 'panels'),
+            utils: path.resolve(__dirname, 'src', 'js', 'components', 'utils'),
+
+            // remove later?
+            containers: path.resolve(__dirname, 'src', 'js', 'containers'),
+
         }
     }
 

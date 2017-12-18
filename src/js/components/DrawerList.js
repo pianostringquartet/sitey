@@ -1,35 +1,31 @@
 import React from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { changePanel } from '../actions/PostActions'
+import ClickableList from 'utils/ClickableList'
 
-import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemText } from 'material-ui/List';
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    background: theme.palette.background.paper,
-  },
-});
-
-const DrawerListItem = ({panel_name, actions}) => (
-  <ListItem
-    children={
-      <a onClick={function() {actions.changePanel(panel_name)}}>
-        <ListItemText primary={panel_name} />
-      </a>}
+const DrawerList = ({panel_names, actions}) => (
+  <ClickableList
+    items={
+      panel_names.map(name => (
+      {
+        displayable: name,
+        callable: () => actions.changePanel(name)
+      }))
+    }
   />
 )
 
-const DrawerList = ({panel_names, actions, classes}) => (
-  <div className={classes.root}>
-    <List>
-      {panel_names.map(panel_name =>
-        <DrawerListItem
-          key={Math.random()}
-          panel_name={panel_name}
-          actions={actions} />)}
-    </List>
-  </div>
-)
+const mapStateToProps = state => ({
+  panel_names: state.panels.panel_names
+})
 
-export default withStyles(styles)(DrawerList);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({changePanel}, dispatch)
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DrawerList)

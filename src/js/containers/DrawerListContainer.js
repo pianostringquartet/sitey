@@ -1,9 +1,11 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import DrawerList from '../components/DrawerList'
+import DrawerList from 'components/DrawerList'
 // import { changePanel } from '../actions/NavigationActions'
 import { changePanel } from '../actions/PostActions'
+
+// DEPRECATED
 
 const mapStateToProps = state => ({
   panel_names: state.panels.panel_names

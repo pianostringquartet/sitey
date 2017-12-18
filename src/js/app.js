@@ -1,4 +1,5 @@
 import 'whatwg-fetch'
+
 import React, { Component } from 'react';
 import thunkMiddleware from 'redux-thunk';
 import { render } from 'react-dom';
@@ -10,10 +11,12 @@ import { syncPosts } from './actions/PostActions'
 
 import PostsListContainer from './containers/PostsListContainer'
 
+import PostsList from 'components/PostsList'
+
 import ProfileAvatar from './components/ProfileAvatar'
 import DrawerContainer from 'containers/DrawerContainer'
 
-
+import DrawerList from 'components/DrawerList'
 
 const store = createStore(
   reducer,
@@ -30,7 +33,9 @@ store.dispatch(syncPosts())
 // Main parent component
 const PostyApp = () => (
   <div>
+    {/*<PostsList />*/}
     <DrawerContainer />
+    {/*<DrawerList/>*/}
   </div>
 )
 

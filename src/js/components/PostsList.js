@@ -1,37 +1,31 @@
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
-import List, { ListItem } from 'material-ui/List';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import {updateAndViewCurrentPost } from '../actions/PostActions'
+import ClickableList from 'utils/ClickableList'
 
 
-const styles = theme => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    background: theme.palette.background.paper,
-  },
-});
-
-const PostItem = ({id, title, actions}) => (
-  <ListItem
-    children={
-      // <a onClick={function() {actions.updateCurrentPost(id)}}>
-      <a onClick={function() {actions.updateAndViewCurrentPost(id)}}>
-        {title}
-      </a>}
+const PostsList = ({posts, actions}) => (
+  <ClickableList
+    items={
+      posts.map(post => (
+        {
+          displayable: post.title,
+          callable: () => actions.updateAndViewCurrentPost(post.id)
+        }))
+    }
   />
 )
 
-const PostsList = ({posts, actions, classes}) => (
-    <div className={classes.root}>
-      <List>
-        {posts.map(post =>
-            <PostItem
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              actions={actions}/>)}
-      </List>
-    </div>
-)
+const mapStateToProps = state => ({
+  posts: state.posts.posts
+})
 
-export default withStyles(styles)(PostsList);
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({updateAndViewCurrentPost}, dispatch)
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PostsList)

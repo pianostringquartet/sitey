@@ -1,6 +1,6 @@
 import React from 'react'
 import { withStyles } from 'material-ui/styles';
-import BackToBlogButton from './BackToBlogButton'
+import BackToBlogButton from 'utils/BackToBlogButton'
 
 var marked = require('marked');
 

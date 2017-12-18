@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import BlogItemPanel from '../components/BlogItemPanel'
+// import BlogItemPanel from '../components/BlogItemPanel'
+import BlogItemPanel from 'components/panels/BlogItemPanel'
 import { changePanel } from '../actions/PostActions'
 
 const mapStateToProps = state => ({

@@ -10,21 +10,23 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 
-import PostsListContainer from '../containers/PostsListContainer'
+// import PostsListContainer from '../containers/PostsListContainer'
 
-import DrawerListContainer from '../containers/DrawerListContainer'
+// import DrawerListContainer from '../containers/DrawerListContainer'
+import DrawerList from 'components/DrawerList'
 
 import ProfileAvatar from '../components/ProfileAvatar'
 // import CurrentPostContainer from '../containers/CurrentPostContainer'
+
+
 import BlogItemPanelContainer from '../containers/BlogItemPanelContainer'
+import NowPanel from '../components/panels/NowPanel'
+import ProjectsPanel from '../components/panels/ProjectsPanel'
+import BlogListPanel from '../components/panels/BlogListPanel'
+import AboutPanel from '../components/panels/AboutPanel'
 
-import NowPanel from '../components/NowPanel'
-import ProjectsPanel from '../components/ProjectsPanel'
-// import BlogPanel from '../components/BlogPanel'
-import BlogListPanel from '../components/BlogListPanel'
-
-import AboutPanel from '../components/AboutPanel'
-
+// console.log("DrawerList in Drawer is: ")
+// console.log(DrawerList)
 
 
 const drawerWidth = 240;
@@ -134,7 +136,8 @@ class ResponsiveDrawer extends React.Component {
         <Divider />
 
         {/*{<PostsListContainer />}*/}
-        <DrawerListContainer />
+        {/*<DrawerListContainer />*/}
+        <DrawerList />
 
       </div>
     );
