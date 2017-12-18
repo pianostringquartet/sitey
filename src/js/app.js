@@ -28,14 +28,10 @@ const store = createStore(
 console.log("About to dispatch syncPosts")
 store.dispatch(syncPosts())
 
-
-
 // Main parent component
 const PostyApp = () => (
   <div>
-    {/*<PostsList />*/}
     <DrawerContainer />
-    {/*<DrawerList/>*/}
   </div>
 )
 

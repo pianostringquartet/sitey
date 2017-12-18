@@ -7,13 +7,14 @@ const styles = theme => ({
     margin: theme.spacing.unit,
   },
 });
-
-const BackToBlogButton = ({classes, actions}) => (
+// onClick={function() {actions.changePanel('BLOG_LIST_PANEL')}}>
+// const BackToBlogButton = ({classes, actions}) => (
+const NavButton = ({classes, callable}) => (
   <Button color="primary"
           className={classes.button}
-          onClick={function() {actions.changePanel('BLOG_PANEL')}}>
+          onClick={callable}>
     back to blog
   </Button>
 )
 
-export default withStyles(styles)(BackToBlogButton)
+export default withStyles(styles)(NavButton)
