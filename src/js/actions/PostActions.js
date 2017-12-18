@@ -191,13 +191,11 @@ export const retrieveAndSetPost = (post) => (
   )
 )
 
-
 export const syncPosts = () => (
   dispatch => (
     database.ref('posts/').on(
       'value',
       function(snapshot) {
-        // const posts = snapshot.val()
         const posts = Object.values(snapshot.val())
         console.log("posts is: ")
         console.log(typeof(posts))
