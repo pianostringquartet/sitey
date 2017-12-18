@@ -53,8 +53,17 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+        modules: ['src/js', 'node_modules'],
+        extensions: ['.jsx', '.js'],
+        alias: {
+            // for shorter import references
+            components: path.resolve(__dirname, 'src', 'js', 'components'),
+            containers: path.resolve(__dirname, 'src', 'js', 'containers'),
+            actions: path.resolve(__dirname, 'src', 'js', 'actions'),
+            constants: path.resolve(__dirname, 'src', 'js', 'constants'),
+            reducers: path.resolve(__dirname, 'src', 'js', 'reducers'),
+        }
+    }
 
   // devServer: {
   //   contentBase: paths.SRC,

@@ -15,18 +15,22 @@ import PostsListContainer from '../containers/PostsListContainer'
 import DrawerListContainer from '../containers/DrawerListContainer'
 
 import ProfileAvatar from '../components/ProfileAvatar'
-import CurrentPostContainer from '../containers/CurrentPostContainer'
+// import CurrentPostContainer from '../containers/CurrentPostContainer'
+import BlogItemPanelContainer from '../containers/BlogItemPanelContainer'
 
 import NowPanel from '../components/NowPanel'
 import ProjectsPanel from '../components/ProjectsPanel'
-import BlogPanel from '../components/BlogPanel'
+// import BlogPanel from '../components/BlogPanel'
+import BlogListPanel from '../components/BlogListPanel'
+
+import AboutPanel from '../components/AboutPanel'
 
 
 
 const drawerWidth = 240;
 
 // this needs to be separate and e.g. passed in to the Drawer
-//
+
 
 function showCurrentPanel(currentPanel) {
   switch (currentPanel) {
@@ -34,11 +38,14 @@ function showCurrentPanel(currentPanel) {
       return <NowPanel />
     case 'PROJECTS_PANEL':
       return <ProjectsPanel />
-    case 'BLOG_PANEL':
-      return <BlogPanel />
+    case 'BLOG_LIST_PANEL':
+      return <BlogListPanel />
     case 'CURRENT_POST_PANEL':
       // don't need panel per se, just the Container is enough
-      return <CurrentPostContainer />
+      return <BlogItemPanelContainer />
+      // return <CurrentPostContainer />
+    case 'ABOUT_PANEL':
+      return <AboutPanel />
     default:
       return <NowPanel />
   }

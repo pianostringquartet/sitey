@@ -13,7 +13,15 @@ const initialPanel = {
   currentPanel: 'CURRENT_POST_PANEL',
 
   // this won't change
-  panel_names: ['NOW_PANEL', 'PROJECTS_PANEL', 'BLOG_PANEL', 'CURRENT_POST_PANEL']
+  panel_names: [
+    'NOW_PANEL',
+    'PROJECTS_PANEL',
+    // 'BLOG_PANEL',
+    'CURRENT_POST_PANEL', // to be replaced with BLOG_ITEM_PANEL
+    'BLOG_LIST_PANEL',
+    // 'BLOG_ITEM_PANEL',
+    'ABOUT_PANEL'
+  ]
 }
 
 export default function panels(state = initialPanel, action) {
