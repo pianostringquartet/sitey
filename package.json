@@ -9,6 +9,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.7",
+    "editor.md": "^1.5.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "firebaseui": "^2.5.1",
@@ -19,8 +20,10 @@
     "react-redux": "^5.0.6",
     "redux-devtools": "^3.4.1",
     "redux-thunk": "^2.2.0",
+    "showdown": "^1.8.5",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.9.7"
+    "webpack-dev-server": "^2.9.7",
+    "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
     "dev": "webpack-dev-server",

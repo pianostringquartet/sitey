@@ -17,7 +17,7 @@ const paths = {
 // the entry point for our app, and
 // the output point
 module.exports = {
-  entry: path.join(paths.JS, 'app.js'),
+  entry: ['whatwg-fetch', path.join(paths.JS, 'app.js')],
   output: {
     path: paths.DIST,
     filename: 'app.bundle.js'

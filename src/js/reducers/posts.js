@@ -1,5 +1,6 @@
-import { UPDATE_CURRENT_POST,
+import { ADD_POST,
          ADD_POSTS,
+         UPDATE_CURRENT_POST,
          REFRESH_CURRENT_POST } from '../constants/ActionTypes'
 
 
@@ -17,7 +18,33 @@ const initialPosts = {
     {
       id: 1,
       title: "Atman is Brahmin",
-      content: "### The Upanishads tell us, Atman is Brahmin. Cool huh?"
+      content: `Showdown is a Javascript Markdown to HTML converter, based on the original works by John Gruber. It can be used client side (in the browser) or server side (with Node or io).
+# Installation
+
+## Download tarball
+
+You can download the latest release tarball directly from [releases][releases]
+
+## Bower
+
+    bower install showdown
+
+## npm (server-side)
+
+    npm install showdown
+
+## CDN
+
+You can also use one of several CDNs available:
+
+* rawgit CDN
+
+        https://cdn.rawgit.com/showdownjs/showdown/<version tag>/dist/showdown.min.js
+
+* cdnjs
+
+        https://cdnjs.cloudflare.com/ajax/libs/showdown/<version tag>/showdown.min.js
+`
     },
   ]
 }
@@ -28,6 +55,18 @@ const initialPosts = {
 // export default function posts(state = [], action) {
 export default function posts(state = initialPosts, action) {
   switch (action.type) {
+
+    case ADD_POST:
+      return Object.assign({}, state, {
+        posts: [
+          ...state.posts,
+          {
+            id: action.id,
+            title: action.title,
+            content: action.content
+          }
+        ]
+      })
 
     case ADD_POSTS:
       return Object.assign({}, state, {
