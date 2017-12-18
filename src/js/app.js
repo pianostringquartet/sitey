@@ -9,14 +9,15 @@ import reducer from './reducers';
 
 import { syncPosts } from './actions/PostActions'
 
-import PostsListContainer from './containers/PostsListContainer'
-
 import PostsList from 'components/PostsList'
 
 import ProfileAvatar from './components/ProfileAvatar'
 import DrawerContainer from 'containers/DrawerContainer'
 
 import DrawerList from 'components/DrawerList'
+
+
+import BlogPanel from 'panels/BlogPanel'
 
 const store = createStore(
   reducer,
@@ -31,7 +32,8 @@ store.dispatch(syncPosts())
 // Main parent component
 const PostyApp = () => (
   <div>
-    <DrawerContainer />
+    {<DrawerContainer />}
+    {/*<BlogPanel />*/}
   </div>
 )
 

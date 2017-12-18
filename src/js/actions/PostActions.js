@@ -6,6 +6,13 @@ var storage = firebase.storage();
 var storageRef = storage.refFromURL('gs://posty-blog-app.appspot.com')
 
 
+export const setReading = (isReading) => (
+  {
+    type: action_types.SET_READING,
+    isReading: isReading
+  }
+)
+
 export const changePanel = (panel) => (
   {
     type: action_types.CHANGE_PANEL,
@@ -32,17 +39,9 @@ export const updateCurrentPost = (id) => (
 export const updateAndViewCurrentPost = (id) => (
   function(dispatch) {
     dispatch(updateCurrentPost(id))
-    dispatch(changePanel('CURRENT_POST_PANEL'))
+    dispatch(setReading(true))
   }
 )
-
-// not used anymore?
-// export const addPosts = (posts) => (
-//   {
-//     type: action_types.ADD_POSTS,
-//     posts: posts // posts from Firebase DB
-//   }
-// )
 
 export const refreshCurrentPost = () => (
   {

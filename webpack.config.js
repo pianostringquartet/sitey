@@ -24,7 +24,6 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        // template: path.join(paths.SRC, 'index.html'),
         template: path.join(paths.PUBLIC, 'index.html'),
     }),
     new ExtractTextPlugin('style.bundle.css'),
@@ -55,17 +54,13 @@ module.exports = {
   resolve: {
         modules: ['src/js', 'node_modules'],
         extensions: ['.jsx', '.js'],
-        alias: {
-            // for shorter import references
+        alias: { // for shorter import references
             actions: path.resolve(__dirname, 'src', 'js', 'actions'),
             constants: path.resolve(__dirname, 'src', 'js', 'constants'),
             reducers: path.resolve(__dirname, 'src', 'js', 'reducers'),
-
             components: path.resolve(__dirname, 'src', 'js', 'components'),
-
             panels: path.resolve(__dirname, 'src', 'js', 'components', 'panels'),
             utils: path.resolve(__dirname, 'src', 'js', 'components', 'utils'),
-
             // remove later?
             containers: path.resolve(__dirname, 'src', 'js', 'containers'),
 

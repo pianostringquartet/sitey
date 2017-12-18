@@ -10,20 +10,23 @@ import Hidden from 'material-ui/Hidden';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 
-// import PostsListContainer from '../containers/PostsListContainer'
-
-// import DrawerListContainer from '../containers/DrawerListContainer'
 import DrawerList from 'components/DrawerList'
 
 import ProfileAvatar from '../components/ProfileAvatar'
 // import CurrentPostContainer from '../containers/CurrentPostContainer'
 
 
-import BlogItemPanelContainer from '../containers/BlogItemPanelContainer'
+
 import NowPanel from '../components/panels/NowPanel'
 import ProjectsPanel from '../components/panels/ProjectsPanel'
-import BlogListPanel from '../components/panels/BlogListPanel'
 import AboutPanel from '../components/panels/AboutPanel'
+
+
+
+import BlogItemPanelContainer from '../containers/BlogItemPanelContainer'
+import BlogListPanel from '../components/panels/BlogListPanel'
+
+import BlogPanel from 'panels/BlogPanel'
 
 // console.log("DrawerList in Drawer is: ")
 // console.log(DrawerList)
@@ -41,10 +44,12 @@ function showCurrentPanel(currentPanel) {
     case 'PROJECTS_PANEL':
       return <ProjectsPanel />
     case 'BLOG_LIST_PANEL':
-      return <BlogListPanel />
+      {/*return <BlogListPanel />*/}
+      return <BlogPanel />
     case 'CURRENT_POST_PANEL':
       // don't need panel per se, just the Container is enough
-      return <BlogItemPanelContainer />
+      return <BlogPanel />
+      {/*return <BlogItemPanelContainer />*/}
       // return <CurrentPostContainer />
     case 'ABOUT_PANEL':
       return <AboutPanel />
@@ -126,17 +131,12 @@ class ResponsiveDrawer extends React.Component {
     // contents
     const drawer = (
       <div>
-        {/*<div className={classes.drawerHeader} />*/}
         <div className={classes.drawerHeader}>
-          {/* okay, but you'll want to center this and provide Avatar image */}
-          {/*DrawerName*/}
           <ProfileAvatar />
         </div>
 
         <Divider />
 
-        {/*{<PostsListContainer />}*/}
-        {/*<DrawerListContainer />*/}
         <DrawerList />
 
       </div>

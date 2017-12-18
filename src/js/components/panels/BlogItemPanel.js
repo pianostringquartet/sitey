@@ -1,10 +1,8 @@
 import React from 'react'
 import { withStyles } from 'material-ui/styles';
-// import BackToBlogButton from 'utils/BackToBlogButton'
 import NavButton from 'utils/NavButton'
 
 var marked = require('marked');
-
 
 const styles = () => ({
   root: {
@@ -13,33 +11,44 @@ const styles = () => ({
   }
 })
 
-var showdown  = require('showdown')
-var converter = new showdown.Converter()
-    // text      = '#hello, markdown!',
-    // html      = converter.makeHtml(text);
-
-const toMarkDownHTML = (text) => (
-  converter.makeHtml(text)
-)
-
-// str (Markdown format) -> str (HTML format)
-// const createMarkup = (text) => (
-//   {__html: marked(text, {sanitize:true})})
-
+// str -> obj
 const createMarkup = (text) => (
-  {__html: toMarkDownHTML(text)}
-)
+  {__html: marked(text, {sanitize:true})})
 
-const CurrentPost = ({actions, title, content, classes}) => (
+// const DisplayPost = (isReading, content) => (
+//   isReading? :
+// )
+
+
+// good but you want this logic in the BlogPanel
+const CurrentPost = ({actions, isReading, title, content, classes}) => (
   <div className={classes.root}>
     <NavButton
-      callable={() => actions.changePanel('BLOG_LIST_PANEL')}
+      callable={() => actions.setReading(false)}
     />
     <h2> {title} </h2>
     <span
       dangerouslySetInnerHTML={createMarkup(content)}
-      />
+    />
   </div>)
 
 export default withStyles(styles)(CurrentPost);
+
+
+
+
+
+// callable={() => actions.changePanel('BLOG_LIST_PANEL')}
+// const CurrentPost = ({actions, title, content, classes}) => (
+//   <div className={classes.root}>
+//     <NavButton
+//       callable={() => actions.setReading(false)}
+//     />
+//     <h2> {title} </h2>
+//     <span
+//       dangerouslySetInnerHTML={createMarkup(content)}
+//       />
+//   </div>)
+
+// export default withStyles(styles)(CurrentPost);
 

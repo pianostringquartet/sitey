@@ -1,11 +1,21 @@
 import { ADD_POST,
          ADD_POSTS,
+         SET_READING,
          UPDATE_CURRENT_POST,
          REFRESH_CURRENT_POST } from '../constants/ActionTypes'
 
 var _ = require('lodash/core');
 
 const initialPosts = {
+
+  // added:
+  // Are we reading a post?
+  // false: show list
+  // true: show current_post
+
+  // default to false
+  isReading: false,
+
   current_post: {
     id: 0,
     title: "The Lived Experience of Programming",
@@ -30,6 +40,12 @@ const newMaxId = (posts) => (
 
 export default function posts(state = initialPosts, action) {
   switch (action.type) {
+
+    // added:
+    case SET_READING:
+      return Object.assign({}, state, {
+          isReading: action.isReading
+        })
 
     case ADD_POST:
       return Object.assign({}, state, {
