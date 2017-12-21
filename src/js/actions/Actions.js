@@ -1,4 +1,4 @@
-import * as action_types from 'constants/ActionTypes'
+import * as ActionTypes from 'constants/ActionTypes'
 
 
 // Connecting to Firebase Database and Storage
@@ -9,13 +9,13 @@ var storageRef = storage.refFromURL('gs://posty-blog-app.appspot.com')
 
 export const toggleDrawerSideMobileOpen = () => (
   {
-    type: action_types.TOGGLE_DRAWER_SIDE_MOBILE_OPEN
+    type: ActionTypes.TOGGLE_DRAWER_SIDE_MOBILE_OPEN
   }
 )
 
 export const setPanel = (panel) => (
   {
-    type: action_types.CHANGE_PANEL,
+    type: ActionTypes.CHANGE_PANEL,
     panel: panel
   }
 )
@@ -29,13 +29,13 @@ export const changePanel = (panel) => (
 
 export const toggleReading = () => (
   {
-    type: action_types.TOGGLE_READING,
+    type: ActionTypes.TOGGLE_READING,
   }
 )
 
 export const addPost = ({id, title, content}) => (
   {
-    type: action_types.ADD_POST,
+    type: ActionTypes.ADD_POST,
     id: id,
     title: title,
     content: content
@@ -44,7 +44,7 @@ export const addPost = ({id, title, content}) => (
 
 export const updateCurrentPost = (id) => (
   {
-    type: action_types.UPDATE_CURRENT_POST,
+    type: ActionTypes.UPDATE_CURRENT_POST,
     id: id
   }
 )
@@ -58,7 +58,7 @@ export const updateAndViewCurrentPost = (id) => (
 
 export const refreshCurrentPost = () => (
   {
-    type: action_types.REFRESH_CURRENT_POST
+    type: ActionTypes.REFRESH_CURRENT_POST
   }
 )
 
