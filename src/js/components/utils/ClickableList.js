@@ -9,6 +9,8 @@ const styles = theme => ({
   }
 })
 
+// displayable: str
+// callable: fn
 const ClickableListItem = ({displayable, callable}) => (
   <ListItem
     children={
