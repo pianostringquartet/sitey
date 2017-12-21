@@ -32,7 +32,7 @@ const Profile = ({classes}) => (
     </div>
     <div className={classes.row}>
       <Typography>
-        cjc500@nyu.edu
+        Contact me: cjc500@nyu.edu
       </Typography>
       <Button onClick={() => window.open(myGithubProfileURL)}>
         <Code />
