@@ -31,7 +31,8 @@ const ProjectsPanel = () => (
     <GithubProjectsList />
 
     <Typography>
-      The lessons learned from writing cardy and posty were summarized in a "Your First Web App" blog post.
+      Lessons learned from cardy and posty are summarized in the
+      "Your First Web App" post.
     </Typography>
   </div>
 )
