@@ -22,6 +22,8 @@
     "redux-devtools": "^3.4.1",
     "redux-thunk": "^2.2.0",
     "showdown": "^1.8.5",
+    "simple-icons": "^1.2.16",
+    "standard": "^10.0.3",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.9.7",
     "whatwg-fetch": "^2.0.3"

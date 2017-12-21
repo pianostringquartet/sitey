@@ -1,18 +1,12 @@
-
-// Where we declare what kinds of actions (events)
-// can occur in the app.
-
-export const UPDATE_CURRENT_POST = 'UPDATE_CURRENT_POST'
-
-export const SET_READING = 'SET_READING'
-
+// Retrieving blog posts from database
 export const REFRESH_CURRENT_POST = 'REFRESH_CURRENT_POST'
-
-export const CHANGE_PANEL = 'CHANGE_PANEL'
-
 export const ADD_POST = 'ADD_POST'
 
-// not used?
-// export const FETCH_POSTS = 'FETCH_POSTS'
-// export const ADD_POSTS = 'ADD_POSTS'
+// Using blog
+export const UPDATE_CURRENT_POST = 'UPDATE_CURRENT_POST'
+export const TOGGLE_READING = 'TOGGLE_READING'
+
+// Navigation
+export const CHANGE_PANEL = 'CHANGE_PANEL'
+export const TOGGLE_DRAWER_SIDE_MOBILE_OPEN = 'TOGGLE_DRAWER_SIDE_MOBILE_OPEN'
 

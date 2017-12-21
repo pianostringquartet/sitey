@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { changePanel } from '../actions/PostActions'
+import { changePanel } from 'actions/Actions'
 import ClickableList from 'utils/ClickableList'
 
 
@@ -18,7 +18,7 @@ const DrawerList = ({panel_names, actions}) => (
 )
 
 const mapStateToProps = state => ({
-  panel_names: state.panels.panel_names
+  panel_names: state.navigation.panel_names
 })
 
 const mapDispatchToProps = dispatch => ({

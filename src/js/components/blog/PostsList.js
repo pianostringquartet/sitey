@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import {updateAndViewCurrentPost } from '../actions/PostActions'
+import {updateAndViewCurrentPost } from 'actions/Actions'
 import ClickableList from 'utils/ClickableList'
 
 
@@ -18,7 +18,7 @@ const PostsList = ({posts, actions}) => (
 )
 
 const mapStateToProps = state => ({
-  posts: state.posts.posts
+  posts: state.blog.posts
 })
 
 const mapDispatchToProps = dispatch => ({

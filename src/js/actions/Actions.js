@@ -1,22 +1,35 @@
-import * as action_types from '../constants/ActionTypes'
+import * as action_types from 'constants/ActionTypes'
 
+
+// Connecting to Firebase Database and Storage
 var database = firebase.database();
-
 var storage = firebase.storage();
 var storageRef = storage.refFromURL('gs://posty-blog-app.appspot.com')
 
 
-export const setReading = (isReading) => (
+export const toggleDrawerSideMobileOpen = () => (
   {
-    type: action_types.SET_READING,
-    isReading: isReading
+    type: action_types.TOGGLE_DRAWER_SIDE_MOBILE_OPEN
+  }
+)
+
+export const setPanel = (panel) => (
+  {
+    type: action_types.CHANGE_PANEL,
+    panel: panel
   }
 )
 
 export const changePanel = (panel) => (
+  function(dispatch) {
+    dispatch(setPanel(panel))
+    dispatch(toggleDrawerSideMobileOpen())
+  }
+)
+
+export const toggleReading = () => (
   {
-    type: action_types.CHANGE_PANEL,
-    panel: panel
+    type: action_types.TOGGLE_READING,
   }
 )
 
@@ -39,7 +52,7 @@ export const updateCurrentPost = (id) => (
 export const updateAndViewCurrentPost = (id) => (
   function(dispatch) {
     dispatch(updateCurrentPost(id))
-    dispatch(setReading(true))
+    dispatch(toggleReading())
   }
 )
 
@@ -51,28 +64,23 @@ export const refreshCurrentPost = () => (
 
 
 function getPostURLPromise(post_filename, storageRef) {
-  console.log("getPostURLPromise called")
-  console.log("post_filename is: " + post_filename)
   return storageRef.child(post_filename).getDownloadURL()
 }
 
 function retrievePostFile(url_promise) {
-  console.log("retrievePostFile called")
   return fetch(url_promise)
       .then(response => response.text())
 }
 
-// where post is an object like {id title filename}
-// 'retrieve' = pull .md file from FB storage
-// 'set' = add {id: id, title: title, content: .md-file} to app db
+// TODO:
+// Break into smaller, more comprehensible and readable steps
 export const retrieveAndSetPost = (post) => (
   dispatch => (
     getPostURLPromise(post.filename, storageRef)
       .then(url_promise => (retrievePostFile(url_promise)
         .then(function(post_md_file) {
-            console.log("calling last part of retrieveAndSetPost")
             dispatch(addPost({id: post.id, title: post.title, content: post_md_file}))
-            dispatch(refreshCurrentPost)
+            dispatch(refreshCurrentPost())
           }
         )
       )

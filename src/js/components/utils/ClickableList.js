@@ -14,8 +14,12 @@ const styles = theme => ({
 const ClickableListItem = ({displayable, callable}) => (
   <ListItem
     children={
-      <a onClick={function() {callable()}}>
-        <ListItemText primary={displayable} />
+      <a onClick={function() {callable()}}
+      >
+        <ListItemText
+          primary={displayable}
+          style={{cursor: 'pointer'}}
+        />
       </a>}
   />
 )
@@ -35,6 +39,5 @@ const ClickableList = ({items, classes}) => (
     </List>
   </div>
 )
-
 
 export default withStyles(styles)(ClickableList);
