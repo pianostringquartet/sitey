@@ -1,14 +1,13 @@
-import React from 'react';
-import classNames from 'classnames';
-import { withStyles } from 'material-ui/styles';
+import React from 'react'
+import classNames from 'classnames'
+import { withStyles } from 'material-ui/styles'
 
-import Avatar from 'material-ui/Avatar';
-import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
-import Code from 'material-ui-icons/Code';
+import Avatar from 'material-ui/Avatar'
+import Typography from 'material-ui/Typography'
+import Button from 'material-ui/Button'
+import Code from 'material-ui-icons/Code'
 
-import profileImage from '../../../public/assets/profile_image.jpg';
-
+import profileImage from '../../../public/assets/profile_image.jpg'
 
 const myGithubProfileURL = 'https://github.com/pianostringquartet'
 
@@ -16,19 +15,19 @@ const styles = {
   row: {
     display: 'flex',
     justifyContent: 'center',
-    padding: 20,
+    padding: 20
   },
   Avatar: {
     width: 200,
-    height: 200,
-  },
-};
+    height: 200
+  }
+}
 
 const ProfileImage = ({classes}) => (
   <div>
     <div className={classes.row}>
       <Avatar
-        alt="Christian Clampitt"
+        alt='Christian Clampitt'
         src={profileImage}
         className={classNames(classes.avatar, classes.Avatar)}
       />
@@ -47,4 +46,4 @@ const ProfileImage = ({classes}) => (
   </div>
 )
 
-export default withStyles(styles)(ProfileImage);
+export default withStyles(styles)(ProfileImage)

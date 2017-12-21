@@ -1,25 +1,23 @@
 import { ADD_POST,
-         ADD_POSTS,
          TOGGLE_READING,
          UPDATE_CURRENT_POST,
          REFRESH_CURRENT_POST } from 'constants/ActionTypes'
 
-var _ = require('lodash/core');
-
+var _ = require('lodash/core')
 
 const initialBlogState = {
   isReading: false,
   currentPost: {
     id: 0,
-    title: "The Lived Experience of Programming",
-    content: "Programming is an experience."
+    title: 'The Lived Experience of Programming',
+    content: 'Programming is an experience.'
   },
   posts: [
     {
       id: 0,
-      title: "The Lived Experience of Programming",
-      content: "Programming is an experience."
-    },
+      title: 'The Lived Experience of Programming',
+      content: 'Programming is an experience.'
+    }
   ]
 }
 
@@ -30,14 +28,12 @@ const newMaxId = (posts) => (
               -1)
 )
 
-export default function posts(state = initialBlogState, action) {
+export default function posts (state = initialBlogState, action) {
   switch (action.type) {
-
-    // added:
     case TOGGLE_READING:
       return Object.assign({}, state, {
-          isReading: !state.isReading
-        })
+        isReading: !state.isReading
+      })
 
     case ADD_POST:
       return Object.assign({}, state, {

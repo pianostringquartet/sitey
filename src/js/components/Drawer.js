@@ -1,20 +1,20 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {toggleDrawerSideMobileOpen } from 'actions/Actions'
-import { withStyles } from 'material-ui/styles';
-import Drawer from 'material-ui/Drawer';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import List, { ListItem, ListItemText } from 'material-ui/List';
-import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import Hidden from 'material-ui/Hidden';
-import Divider from 'material-ui/Divider';
-import MenuIcon from 'material-ui-icons/Menu';
+import { withStyles } from 'material-ui/styles'
+import Drawer from 'material-ui/Drawer'
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import List, { ListItem, ListItemText } from 'material-ui/List'
+import Typography from 'material-ui/Typography'
+import IconButton from 'material-ui/IconButton'
+import Hidden from 'material-ui/Hidden'
+import Divider from 'material-ui/Divider'
+import MenuIcon from 'material-ui-icons/Menu'
 
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 const styles = theme => ({
   root: {
@@ -62,7 +62,7 @@ const styles = theme => ({
       marginTop: 64,
     },
   },
-});
+})
 
 
 /**
@@ -77,13 +77,13 @@ Takes the following content:
 */
 class ResponsiveDrawer extends React.Component {
 
-  handleDrawerToggle = (actions) => actions.toggleDrawerSideMobileOpen
+  handleDrawerToggle = actions => actions.toggleDrawerSideMobileOpen
 
   render() {
     const { classes, theme,
             drawerSideMobileOpen, actions,
             appBarTitle, drawerSideHeader,
-            drawerSide, drawerMain } = this.props;
+            drawerSide, drawerMain } = this.props
 
     const drawer = (
       <div>
@@ -93,7 +93,7 @@ class ResponsiveDrawer extends React.Component {
         <Divider />
         {drawerSide}
       </div>
-    );
+    )
 
     return (
       <div className={classes.root}>
@@ -148,7 +148,7 @@ class ResponsiveDrawer extends React.Component {
 
         </div>
       </div>
-    );
+    )
   }
 }
 

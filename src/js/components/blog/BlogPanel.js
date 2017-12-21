@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import PostsList from 'components/blog/PostsList'
 import CurrentPost from 'components/blog/CurrentPost'
-import Typography from 'material-ui/Typography';
+import Typography from 'material-ui/Typography'
 
 const DisplayPostOrList = ({isReading}) => (
   isReading ? <CurrentPost /> : <PostsList />
@@ -18,7 +18,7 @@ const DisplayPostOrListContainer = connect(
 
 const BlogPanel = () => (
   <div>
-    <Typography type="display1">
+    <Typography type='display1'>
       BLOG
     </Typography>
     <DisplayPostOrListContainer />

@@ -1,11 +1,10 @@
 import * as ActionTypes from 'constants/ActionTypes'
 
-
 // Connecting to Firebase Database and Storage
-var database = firebase.database();
-var storage = firebase.storage();
+// (See index.html for Firebase import.)
+var database = firebase.database()
+var storage = firebase.storage()
 var storageRef = storage.refFromURL('gs://posty-blog-app.appspot.com')
-
 
 export const toggleDrawerSideMobileOpen = () => (
   {
@@ -20,16 +19,15 @@ export const setPanel = (panel) => (
   }
 )
 
-export const changePanel = (panel) => (
-  function(dispatch) {
+export const changePanel = panel =>
+  function (dispatch) {
     dispatch(setPanel(panel))
     dispatch(toggleDrawerSideMobileOpen())
   }
-)
 
 export const toggleReading = () => (
   {
-    type: ActionTypes.TOGGLE_READING,
+    type: ActionTypes.TOGGLE_READING
   }
 )
 
@@ -49,12 +47,11 @@ export const updateCurrentPost = (id) => (
   }
 )
 
-export const updateAndViewCurrentPost = (id) => (
-  function(dispatch) {
+export const updateAndViewCurrentPost = (id) =>
+  function (dispatch) {
     dispatch(updateCurrentPost(id))
     dispatch(toggleReading())
   }
-)
 
 export const refreshCurrentPost = () => (
   {
@@ -62,41 +59,38 @@ export const refreshCurrentPost = () => (
   }
 )
 
-
-function getPostURLPromise(post_filename, storageRef) {
-  return storageRef.child(post_filename).getDownloadURL()
+function getPostURLPromise (postFilename, storageRef) {
+  return storageRef.child(postFilename).getDownloadURL()
 }
 
-function retrievePostFile(url_promise) {
-  return fetch(url_promise)
+function retrievePostFile (urlPromise) {
+  return fetch(urlPromise)
       .then(response => response.text())
 }
 
 // TODO:
 // Break into smaller, more comprehensible and readable steps
-export const retrieveAndSetPost = (post) => (
+export const retrieveAndSetPost = (post) =>
   dispatch => (
     getPostURLPromise(post.filename, storageRef)
-      .then(url_promise => (retrievePostFile(url_promise)
-        .then(function(post_md_file) {
-            dispatch(addPost({id: post.id, title: post.title, content: post_md_file}))
-            dispatch(refreshCurrentPost())
-          }
+      .then(urlPromise => (retrievePostFile(urlPromise)
+        .then(function (postMarkdownFile) {
+          dispatch(addPost({id: post.id, title: post.title, content: postMarkdownFile}))
+          dispatch(refreshCurrentPost())
+        }
         )
       )
     )
   )
-)
 
-export const syncPosts = () => (
+export const syncPosts = () =>
   dispatch => (
     database.ref('posts/').on(
       'value',
-      function(snapshot) {
+      function (snapshot) {
         const posts = Object.values(snapshot.val())
         posts.map(post => (
           dispatch(retrieveAndSetPost(post))))
       }
     )
   )
-)

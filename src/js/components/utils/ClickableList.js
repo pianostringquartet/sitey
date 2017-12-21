@@ -1,20 +1,19 @@
-import React from 'react';
-import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemText } from 'material-ui/List';
-
+import React from 'react'
+import { withStyles } from 'material-ui/styles'
+import List, { ListItem, ListItemText } from 'material-ui/List'
 
 const styles = theme => ({
   root: {
     width: '100%',
     maxWidth: 360,
-    background: theme.palette.background.paper,
-  },
-});
+    background: theme.palette.background.paper
+  }
+})
 
 const ClickableListItem = ({displayable, callable}) => (
   <ListItem
     children={
-      <a onClick={function() {callable()}}
+      <a onClick={function () { callable() }}
       >
         <ListItemText
           primary={displayable}
@@ -40,4 +39,4 @@ const ClickableList = ({items, classes}) => (
   </div>
 )
 
-export default withStyles(styles)(ClickableList);
+export default withStyles(styles)(ClickableList)

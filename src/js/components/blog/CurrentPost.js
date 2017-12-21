@@ -1,23 +1,22 @@
 import React from 'react'
-import { withStyles } from 'material-ui/styles';
+import { withStyles } from 'material-ui/styles'
 import NavButton from 'utils/NavButton'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { toggleReading } from 'actions/Actions'
 
-var marked = require('marked');
-
+var marked = require('marked')
 
 const styles = () => ({
   root: {
-    'font-family': "Helvetica, Arial, sans-serif",
-    'font-size': "16"
+    'font-family': 'Helvetica, Arial, sans-serif',
+    'font-size': '16'
   }
 })
 
 // str -> obj
 const createMarkup = (text) => (
-  {__html: marked(text, {sanitize:true})})
+  {__html: marked(text, {sanitize: true})})
 
 const CurrentPost = ({actions, isReading, title, content, classes}) => (
   <div className={classes.root}>
@@ -30,7 +29,7 @@ const CurrentPost = ({actions, isReading, title, content, classes}) => (
     />
   </div>)
 
-const styledCurrentPost = withStyles(styles)(CurrentPost);
+const styledCurrentPost = withStyles(styles)(CurrentPost)
 
 const mapStateToProps = state => ({
   title: state.blog.currentPost.title,
