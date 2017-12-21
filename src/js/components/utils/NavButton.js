@@ -8,11 +8,11 @@ const styles = theme => ({
   }
 })
 
-const NavButton = ({classes, callable}) => (
+const NavButton = ({classes, value, callable}) => (
   <Button color='primary'
     className={classes.button}
     onClick={callable}>
-    back to blog
+    {value}
   </Button>
 )
 

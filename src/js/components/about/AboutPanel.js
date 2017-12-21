@@ -13,30 +13,4 @@ const aboutPanelItems = [
 
 const AboutPanel = () => <VerticalGrid items={aboutPanelItems} />
 
-// const AboutPanel = () => (
-//   <div>
-//     <Typography type='display1'>
-//       ABOUT
-//     </Typography>
-
-//     <p>
-//       <Typography>
-//       My name is Chris. I'm a philosopher-turned-developer.
-//       <div>
-//         CV here.
-//       </div>
-//         <div>
-//         Was born and raised in Colorado USA.
-//       </div>
-//         <div>
-//         Have lived and worked in New York, South Korea, France, Boston.
-//       </div>
-//         <div>
-//         Ich ziehe im Januar 2018 nach Berlin um.
-//       </div>
-//       </Typography>
-//     </p>
-//   </div>
-// )
-
 export default AboutPanel

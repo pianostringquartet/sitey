@@ -7,10 +7,7 @@ export const BLOG_PANEL = 'blog'
 export const ABOUT_PANEL = 'about'
 
 const initialNavigationState = {
-  // currentPanel: NOW_PANEL,
-  // currentPanel: PROJECTS_PANEL,
-  currentPanel: ABOUT_PANEL,
-  // currentPanel: BLOG_PANEL,
+  currentPanel: NOW_PANEL,
   drawerSideMobileOpen: false,
   panel_names: [
     NOW_PANEL, PROJECTS_PANEL, BLOG_PANEL, ABOUT_PANEL

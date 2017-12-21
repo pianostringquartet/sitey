@@ -13,15 +13,15 @@ const nowPanelItems = [
     Now pages are cool now.)
   </Typography>,
 
-  <div>
+  <span>
     <Typography type='title'> Currently wrapping up four months of:</Typography>
     <CurrentlyDoingList />
-  </div>,
+  </span>,
 
-  <div>
+  <span>
     <Typography type='title'> Currently in love with:</Typography>
     <CurrentlyLovingList />
-  </div>
+  </span>
 ]
 
 const NowPanel = () => <VerticalGrid items={nowPanelItems} />

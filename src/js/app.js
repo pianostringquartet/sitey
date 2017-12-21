@@ -6,7 +6,6 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from 'reducers'
 import { syncPosts } from 'actions/Actions'
-
 import Drawer from 'components/Drawer'
 import ProfileAvatar from 'components/ProfileAvatar'
 import DrawerList from 'components/DrawerList'
@@ -19,6 +18,7 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f)
 )
 
+// Initialize app
 store.dispatch(syncPosts())
 
 const PostyApp = () => (
