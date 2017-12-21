@@ -12,7 +12,7 @@ import IconButton from 'material-ui/IconButton'
 import Hidden from 'material-ui/Hidden'
 import Divider from 'material-ui/Divider'
 import MenuIcon from 'material-ui-icons/Menu'
-
+import { red } from 'material-ui/colors'
 
 const drawerWidth = 240
 
@@ -32,6 +32,7 @@ const styles = theme => ({
   },
   appBar: {
     position: 'absolute',
+    backgroundColor: red[700],
     marginLeft: drawerWidth,
     [theme.breakpoints.up('md')]: {
       width: `calc(100% - ${drawerWidth}px)`,
