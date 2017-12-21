@@ -6,6 +6,7 @@ import { PROJECTS_PANEL } from 'reducers/navigation'
 import { setPanel } from 'actions/Actions'
 
 const mbamURL = 'https://www.mbam.qc.ca'
+const artTumblrURL = 'https://ccbilder.tumblr.com/'
 
 const CurrentlyDoingList = ({actions}) => (
   <ClickableList
@@ -17,7 +18,7 @@ const CurrentlyDoingList = ({actions}) => (
       },
       {
         displayable: 'painting and sketching',
-        callable: () => console.log('Add link to Art Tumblr...')
+        callable: () => window.open(artTumblrURL)
       },
       {
         displayable: 'dabbling in SPAs',
