@@ -9,6 +9,7 @@ const DrawerList = ({panel_names, actions}) => (
     items={
       panel_names.map(name => (
         {
+          _id: name,
           displayable: name,
           callable: () => actions.changePanel(name)
         }))

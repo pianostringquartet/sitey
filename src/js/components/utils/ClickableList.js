@@ -28,7 +28,7 @@ const ClickableList = ({items, classes}) => (
       {
         items.map(item =>
           <ClickableListItem
-            key={Math.random()}
+            key={item.displayable} // assumes each displayable is unique
             displayable={item.displayable}
             callable={item.callable}
           />
