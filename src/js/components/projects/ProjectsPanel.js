@@ -3,25 +3,85 @@ import Typography from 'material-ui/Typography'
 import VerticalGrid from 'utils/VerticalGrid'
 import GithubProjectsList from 'components/projects/GithubProjectsList'
 
-const projectsPanelItems = [
-  {
-    id: 1,
-    item: <Typography type='display1'>PROJECTS</Typography>
-  },
-  {
-    id: 2,
-    item: <GithubProjectsList />
-  },
-  {
-    id: 3,
-    item:
-  <Typography>
-      Lessons learned from cardy and posty are summarized in the
-      "Your First Web App" post.
-    </Typography>
-  }
-]
+import PaperSheet from 'utils/PaperSheet'
 
-const ProjectsPanel = () => <VerticalGrid items={projectsPanelItems} />
+// import Grid from 'material-ui/Grid'
+
+import { Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
+
+// this panel will now be 'Code'
+// it says everything you want to say about code, i.e.:
+// it provides links to each github project you did (Cardy, Posty),
+// as well as a link to a blog post that summarizes
+      //       <Grid.Column>
+//        <GithubProjectsList />
+  //    </Grid.Column>
+const ProjectsGrid = () => (
+  <Grid columns={3} divided>
+    <Grid.Row>
+
+      <Grid.Column>
+        <Header as='h3'>
+          'How to do an abstraction layer': summarizing lessons from writing API integrations at PriceIntelligently.
+        </Header>
+      </Grid.Column>
+      <Grid.Column>
+        <Header as='h3'>
+          'cardy': a flashcard app in Clojurescript + re-frame.
+        </Header>
+      </Grid.Column>
+      <Grid.Column>
+        <Header as='h3'>
+          'posty': a blog and personal app in React + Redux.
+        </Header>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
+
+)
+
+const ProjectsPanel = () => (
+  <Grid
+    container
+    centered
+    textAlign='center'
+    style={{ height: '100%' }}
+    verticalAlign='middle'
+  >
+    <ProjectsGrid />
+  </Grid>
+
+)
 
 export default ProjectsPanel
+
+// const ProjectsGrid = ({items}) => (
+//   <Grid container spacing={24}>
+//     {items.map(x => (<Grid item key={x.id}> {x.item} </Grid>))}
+//   </Grid>
+// )
+
+// const projectsPanelItems = [
+//   {
+//     id: 1,
+//     item: <Typography type='display1'>PROJECTS</Typography>
+//   },
+//   {
+//     id: 2,
+//     item: <GithubProjectsList />
+//   },
+//   {
+//     id: 3,
+//     item:
+//   <Typography>
+//       Lessons learned from cardy and posty are summarized in the
+//       "Your First Web App" post.
+//     </Typography>
+//   }
+// ]
+
+// export default () => <PaperSheet item={<ProjectsGrid items={projectsPanelItems} />} />
+
+// // const ProjectsPanel = () => <VerticalGrid items={projectsPanelItems} />
+
+// // export default ProjectsPanel

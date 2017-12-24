@@ -8,8 +8,8 @@ const GridItem = ({item}) => (
   </Grid>
 )
 
-const VerticalGrid = ({items}) => (
-  <Grid container direction='column' spacing={24}>
+const AppGrid = ({items}) => (
+  <Grid container spacing={24}>
     {items.map(item =>
       <GridItem
         key={item.id}
@@ -18,4 +18,4 @@ const VerticalGrid = ({items}) => (
   </Grid>
 )
 
-export default VerticalGrid
+export default AppGrid
