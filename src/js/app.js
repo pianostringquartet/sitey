@@ -26,6 +26,8 @@ import VerticalSlider from 'utils/VerticalSlider'
 import Life from 'components/Life'
 import SemanticLife from 'components/SemanticLife'
 
+import StatefulSlider from 'utils/StatefulSlider'
+
 const store = createStore(
   reducer,
   compose(
@@ -63,9 +65,10 @@ const appContents = [
 // { <FullPageSlider items={appContents} /> }
 const PostyApp = () => (
   <div>
+    <StatefulSlider />
     {/* <IntroMessage /> */}
     {/* { <SemanticLife /> } */}
-    <VerticalSlider />
+    {/* <VerticalSlider /> */}
     {/* { <Life /> } */}
 
     {/* <LifeScroll items={appContents} /> */}

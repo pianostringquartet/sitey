@@ -6,13 +6,29 @@ var database = firebase.database()
 var storage = firebase.storage()
 var storageRef = storage.refFromURL('gs://posty-blog-app.appspot.com')
 
+import { Fullpage } from 'fullpage-react'
+const { changeHorizontalSlide } = Fullpage
+
+// const firstHorizontalSlide = () => changeHorizontalSlide('horizontalSlider1', 0)
+// const secondHorizontalSlide = () => changeHorizontalSlide('horizontalSlider1', 1)
+// const thirdHorizontalSlide = () => changeHorizontalSlide('horizontalSlider1', 2)
+
+// WORKAROUND:
+// Because Fullpage-react (a) does not expose state explicitly,
+// but (b) does expose functions to mutate state,
+// we treat Fullpage-react state mutations as *Redux-style side-effects.*
+// This gives us the advantages of Redux's "reasoning via actions/events",
+// even though we can't have Redux's "one place to look"-advantage.
+export const changeSlide = (horizontalSliderName, slide) =>
+  () => changeHorizontalSlide(horizontalSliderName, slide)
+
 export const toggleDrawerSideMobileOpen = () => (
   {
     type: ActionTypes.TOGGLE_DRAWER_SIDE_MOBILE_OPEN
   }
 )
 
-export const setPanel = (panel) => (
+export const setPanel = panel => (
   {
     type: ActionTypes.CHANGE_PANEL,
     panel: panel

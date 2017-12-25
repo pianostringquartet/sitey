@@ -6,6 +6,20 @@ import profileImage from '../../../public/assets/profile_image.jpg'
 
 import { List } from 'semantic-ui-react'
 
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { changeSlide } from 'actions/Actions'
+import { HORIZONTAL_SLIDER_NAME } from 'reducers/navigation'
+
+import { Fullpage } from 'fullpage-react'
+const { changeHorizontalSlide } = Fullpage
+
+// ok, so this works.
+// this is a very interesting way of handling the State of H-Slides.
+// basically, we identify the row of horizontal slides by name
+// (here, 'horizontalSlider1').
+// so, we can change the H Slide from anywhere else in the code.
+
 const ProfileList = () => (
   <List>
     <List.Item>
@@ -40,7 +54,20 @@ const ProfileList = () => (
   </List>
 )
 
-const ChrisLifeGrid = () => (
+// ideally we could explicitly manage the HSlider's state;
+// for now, our workaround is to treat changeHorizontalSlide as "side effects"
+// i.e. we have an action for them, and that action
+
+// pros of this approach:
+// -- the state is more closely managed by Redux; we might not be using a store,
+// but we are using "events", and so we can say "the H slide changed because of an event"
+
+// cons of this approach:
+
+// <span onClick={actions.changeSlide('horizontalSlider1', 2)}>
+  //      <Header> Go to third H slide </Header>
+    //  </span>
+const ChrisLifeGrid = ({actions}) => (
   <Grid columns={2}>
     <Grid.Column>
       <Image src={profileImage} size='small' />
@@ -50,6 +77,11 @@ const ChrisLifeGrid = () => (
       <Header as='h3'>
         Hi, I'm Chris. Let's build something together.
       </Header>
+
+      <span onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, 2)}>
+        <Header> Go to third H slide via direct call. </Header>
+      </span>
+
       <Header as='h3'>
         Get in touch.
       </Header>
@@ -74,6 +106,16 @@ const ChrisLifeGrid = () => (
 //   </Card>
 // )
 
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ changeSlide }, dispatch)
+})
+
+const ConnectedChrisLifeGrid = connect(
+  null,
+  mapDispatchToProps
+)(ChrisLifeGrid)
+
+// <ChrisLifeGrid />
 const ChrisLifeCard = () => (
   <Grid
     container
@@ -82,7 +124,7 @@ const ChrisLifeCard = () => (
     style={{ height: '100%' }}
     verticalAlign='middle'
   >
-    <ChrisLifeGrid />
+    <ConnectedChrisLifeGrid />
   </Grid>
 )
 
