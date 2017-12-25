@@ -18,21 +18,27 @@ import { Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
   //    </Grid.Column>
 const ProjectsGrid = () => (
   <Grid columns={3} divided>
-    <Grid.Row>
 
+    <Grid.Row>
+      <Header color='blue'>
+        <Icon name='hand peace' />
+        PROJECTS
+      </Header>
+    </Grid.Row>
+    <Grid.Row>
       <Grid.Column>
-        <Header as='h3'>
-          'How to do an abstraction layer': summarizing lessons from writing API integrations at PriceIntelligently.
+        <Header> 'How to do an abstraction layer'
+          <Header.Subheader>summarizing lessons from writing API integrations at PriceIntelligently.</Header.Subheader>
         </Header>
       </Grid.Column>
       <Grid.Column>
-        <Header as='h3'>
-          'cardy': a flashcard app in Clojurescript + re-frame.
+        <Header> 'cardy'
+          <Header.Subheader> a flashcard app in Clojurescript + re-frame. </Header.Subheader>
         </Header>
       </Grid.Column>
       <Grid.Column>
-        <Header as='h3'>
-          'posty': a blog and personal app in React + Redux.
+        <Header> 'posty'
+          <Header.Subheader>a blog and personal app in React + Redux.</Header.Subheader>
         </Header>
       </Grid.Column>
     </Grid.Row>

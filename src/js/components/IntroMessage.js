@@ -16,7 +16,7 @@ const introLines = [
     id: 1,
     isEval: false,
     delay: 5000,
-    text: '> (instance? Human chris/christian-clampitt)'
+    text: '> (instance? Human chris/chris-clampitt)'
   },
   {
     id: 2,

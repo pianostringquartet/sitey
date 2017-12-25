@@ -1,17 +1,15 @@
 import * as ActionTypes from 'constants/ActionTypes'
 
+import { slideNameToIndex } from 'reducers/navigation'
+import { Fullpage } from 'fullpage-react'
+const { changeHorizontalSlide } = Fullpage
+// import { changeHorizontalSlide } from 'fullpage-react'
+
 // Connecting to Firebase Database and Storage
 // (See index.html for Firebase import.)
 var database = firebase.database()
 var storage = firebase.storage()
 var storageRef = storage.refFromURL('gs://posty-blog-app.appspot.com')
-
-import { Fullpage } from 'fullpage-react'
-const { changeHorizontalSlide } = Fullpage
-
-// const firstHorizontalSlide = () => changeHorizontalSlide('horizontalSlider1', 0)
-// const secondHorizontalSlide = () => changeHorizontalSlide('horizontalSlider1', 1)
-// const thirdHorizontalSlide = () => changeHorizontalSlide('horizontalSlider1', 2)
 
 // WORKAROUND:
 // Because Fullpage-react (a) does not expose state explicitly,
@@ -20,7 +18,7 @@ const { changeHorizontalSlide } = Fullpage
 // This gives us the advantages of Redux's "reasoning via actions/events",
 // even though we can't have Redux's "one place to look"-advantage.
 export const changeSlide = (horizontalSliderName, slide) =>
-  () => changeHorizontalSlide(horizontalSliderName, slide)
+  () => changeHorizontalSlide(horizontalSliderName, slideNameToIndex(slide))
 
 export const toggleDrawerSideMobileOpen = () => (
   {
