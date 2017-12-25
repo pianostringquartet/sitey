@@ -28,6 +28,8 @@ import SemanticLife from 'components/SemanticLife'
 
 import StatefulSlider from 'utils/StatefulSlider'
 
+import NewBlogPanel from 'components/blog/NewBlogPanel'
+
 const store = createStore(
   reducer,
   compose(
@@ -65,7 +67,8 @@ const appContents = [
 // { <FullPageSlider items={appContents} /> }
 const PostyApp = () => (
   <div>
-    <StatefulSlider />
+    <NewBlogPanel />
+    {/* <StatefulSlider /> */}
     {/* <IntroMessage /> */}
     {/* { <SemanticLife /> } */}
     {/* <VerticalSlider /> */}

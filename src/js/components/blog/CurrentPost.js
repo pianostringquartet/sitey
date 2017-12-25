@@ -14,15 +14,14 @@ const styles = () => ({
   }
 })
 
+{ /* <NavButton value={'back to blog'} callable={() => actions.toggleReading()} /> */ }
+
 const createMarkup = (text) => (
   {__html: marked(text, {sanitize: true})})
 
 const CurrentPost = ({actions, isReading, title, content, classes}) => (
   <div className={classes.root}>
-    <NavButton
-      value={'back to blog'}
-      callable={() => actions.toggleReading()}
-    />
+
     <h2> {title} </h2>
     <span
       dangerouslySetInnerHTML={createMarkup(content)}

@@ -2,13 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PostsList from 'components/blog/PostsList'
 import CurrentPost from 'components/blog/CurrentPost'
+import ReadPostPanel from 'components/blog/ReadPostPanel'
 import Typography from 'material-ui/Typography'
 
 import { Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
 
 const DisplayPostOrList = ({isReading}) => (
-  isReading ? <CurrentPost /> : <PostsList />
+  isReading ? <ReadPostPanel /> : <PostsList />
 )
+
+// const DisplayPostOrList = ({isReading}) => (
+//   isReading ? <CurrentPost /> : <PostsList />
+// )
 
 const mapStateToProps = state => ({
   isReading: state.blog.isReading

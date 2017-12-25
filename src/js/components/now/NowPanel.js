@@ -67,8 +67,6 @@ const CurrentLovesList = () => (
   </List>
 )
 
-// <a href={simpleMadeEasyURL}>Rick Hickey Simple Made Easy</a>
-
 const NowGrid = () => (
   <Grid columns={2} relaxed>
 

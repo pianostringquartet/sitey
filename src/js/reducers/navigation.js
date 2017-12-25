@@ -20,11 +20,12 @@ export const NOW_SLIDE = 'now'
 export const HORIZONTAL_SLIDER_NAME = 'horizontalSlider1'
 
 const HORIZONTAL_PANELS = {
+  [BLOG_PANEL]: <BlogPanel />,
   [NOW_PANEL]: <NowPanel />,
   [ABOUT_PANEL]: <SemanticLife />,
 
-  [PROJECTS_PANEL]: <ProjectsPanel />,
-  [BLOG_PANEL]: <BlogPanel />
+  [PROJECTS_PANEL]: <ProjectsPanel />
+
 }
 
 export const slideNameToIndex = slide => (
