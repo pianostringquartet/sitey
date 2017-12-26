@@ -1,38 +1,39 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { changePanel } from 'actions/Actions'
+import { changeSubApp } from 'actions/Actions'
 import NowPanel from 'components/now/NowPanel'
 import ProjectsPanel from 'components/projects/ProjectsPanel'
 import AboutPanel from 'components/about/AboutPanel'
 import BlogPanel from 'components/blog/BlogPanel'
-import {NOW_PANEL, PROJECTS_PANEL,
-        BLOG_PANEL, ABOUT_PANEL} from 'reducers/navigation'
+// import {NOW_PANEL, PROJECTS_PANEL,
+//         BLOG_PANEL, ABOUT_PANEL} from 'reducers/navigation'
 
-function showCurrentPanel ({currentPanel}) {
-  switch (currentPanel) {
-    case NOW_PANEL:
-      return <NowPanel />
-    case PROJECTS_PANEL:
-      return <ProjectsPanel />
-    case BLOG_PANEL:
-      return <BlogPanel />
-    case ABOUT_PANEL:
-      return <AboutPanel />
+import { PERSONAL_SUBAPP, BLOG_SUBAPP } from 'reducers/navigation'
+import StatefulSlider from 'utils/StatefulSlider'
+import NewBlogPanel from 'components/blog/NewBlogPanel'
+
+function showCurrentSubApp ({currentSubApp}) {
+  switch (currentSubApp) {
+    case PERSONAL_SUBAPP:
+      return <StatefulSlider />
+    case BLOG_SUBAPP:
+      return <NewBlogPanel />
     default:
       return <div>No panel matched...</div>
   }
 }
 
 const mapStateToProps = state => ({
-  currentPanel: state.navigation.currentPanel
+  currentSubApp: state.navigation.currentSubApp
 })
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({changePanel}, dispatch)
-})
+// const mapDispatchToProps = dispatch => ({
+//   actions: bindActionCreators({changeSubApp}, dispatch)
+// })
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(showCurrentPanel)
+  // mapDispatchToProps
+  null
+)(showCurrentSubApp)

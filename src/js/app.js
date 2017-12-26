@@ -67,7 +67,8 @@ const appContents = [
 // { <FullPageSlider items={appContents} /> }
 const PostyApp = () => (
   <div>
-    <NewBlogPanel />
+    {/* <NewBlogPanel /> */}
+    <MainContent />
     {/* <StatefulSlider /> */}
     {/* <IntroMessage /> */}
     {/* { <SemanticLife /> } */}

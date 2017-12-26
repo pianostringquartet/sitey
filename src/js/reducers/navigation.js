@@ -6,8 +6,10 @@ import AboutPanel from 'components/about/AboutPanel'
 import NowPanel from 'components/now/NowPanel'
 import ProjectsPanel from 'components/projects/ProjectsPanel'
 import BlogPanel from 'components/blog/BlogPanel'
+import NewBlogPanel from 'components/blog/NewBlogPanel'
 
-import { CHANGE_PANEL,
+import { CHANGE_SUBAPP,
+          CHANGE_PANEL,
          TOGGLE_DRAWER_SIDE_MOBILE_OPEN } from 'constants/ActionTypes'
 
 export const NOW_PANEL = 'now'
@@ -15,12 +17,15 @@ export const PROJECTS_PANEL = 'projects'
 export const BLOG_PANEL = 'blog'
 export const ABOUT_PANEL = 'about'
 
+export const BLOG_SUBAPP = 'blog_subapp'
+export const PERSONAL_SUBAPP = 'personal_subapp'
+
 export const NOW_SLIDE = 'now'
 
 export const HORIZONTAL_SLIDER_NAME = 'horizontalSlider1'
 
 const HORIZONTAL_PANELS = {
-  [BLOG_PANEL]: <BlogPanel />,
+  [BLOG_PANEL]: <NewBlogPanel />,
   [NOW_PANEL]: <NowPanel />,
   [ABOUT_PANEL]: <SemanticLife />,
 
@@ -38,6 +43,8 @@ export const horizontalSlides = (
 
 const initialNavigationState = {
   currentPanel: NOW_PANEL,
+  // currentSubApp: BLOG_SUBAPP,
+  currentSubApp: PERSONAL_SUBAPP,
   drawerSideMobileOpen: false,
   panel_names: [
     NOW_PANEL, PROJECTS_PANEL, BLOG_PANEL, ABOUT_PANEL
@@ -49,6 +56,11 @@ export default function panels (state = initialNavigationState, action) {
     case CHANGE_PANEL:
       return Object.assign({}, state, {
         currentPanel: action.panel
+      })
+
+    case CHANGE_SUBAPP:
+      return Object.assign({}, state, {
+        currentSubApp: action.subApp
       })
 
     case TOGGLE_DRAWER_SIDE_MOBILE_OPEN:

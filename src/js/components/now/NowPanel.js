@@ -71,7 +71,7 @@ const NowGrid = () => (
   <Grid columns={2} relaxed>
 
     <Grid.Row>
-      <Header color='purple'>
+      <Header color='red'>
         <Icon name='hand peace' />
         NOW
       </Header>

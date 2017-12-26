@@ -8,8 +8,9 @@ import { List } from 'semantic-ui-react'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { changeSlide } from 'actions/Actions'
+import { changeSlide, changeSubApp } from 'actions/Actions'
 import {
+  BLOG_SUBAPP,
   HORIZONTAL_SLIDER_NAME, NOW_PANEL,
   PROJECTS_PANEL, BLOG_PANEL, ABOUT_PANEL } from 'reducers/navigation'
 
@@ -53,6 +54,13 @@ const ProfileList = () => (
 const ChrisLifeGrid = ({actions}) => (
   <Grid columns={2}>
 
+    <Grid.Row>
+      <Header color='green'>
+        <Icon name='hand peace' />
+        ABOUT
+      </Header>
+    </Grid.Row>
+
     <Grid.Column>
       <Image src={profileImage} size='small' />
       <ProfileList />
@@ -68,7 +76,7 @@ const ChrisLifeGrid = ({actions}) => (
       <Header onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS_PANEL)}>
           See some code.
       </Header>
-      <Header onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, BLOG_PANEL)}>
+      <Header onClick={() => actions.changeSubApp(BLOG_SUBAPP)}>
         Read the blog.
       </Header>
       <Header onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, NOW_PANEL)}>
@@ -80,7 +88,7 @@ const ChrisLifeGrid = ({actions}) => (
 )
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ changeSlide }, dispatch)
+  actions: bindActionCreators({ changeSlide, changeSubApp }, dispatch)
 })
 
 const ConnectedChrisLifeGrid = connect(

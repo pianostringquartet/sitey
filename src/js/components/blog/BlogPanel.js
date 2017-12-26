@@ -34,6 +34,14 @@ const DisplayPostOrListContainer = connect(
 
 const BlogGrid = () => (
   <Grid columns={2}>
+
+    <Grid.Row>
+      <Header color='purple'>
+        <Icon name='hand peace' />
+        BLOG
+      </Header>
+    </Grid.Row>
+
     <Grid.Column>
       <Header as='h2'>BLOG</Header>
     </Grid.Column>

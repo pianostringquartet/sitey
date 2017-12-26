@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { toggleReading } from 'actions/Actions'
 
+import { Header } from 'semantic-ui-react'
+
 var marked = require('marked')
 
 const styles = () => ({
@@ -14,15 +16,14 @@ const styles = () => ({
   }
 })
 
-{ /* <NavButton value={'back to blog'} callable={() => actions.toggleReading()} /> */ }
+// { <NavButton value={'back to blog'} callable={() => actions.toggleReading()} />
 
 const createMarkup = (text) => (
   {__html: marked(text, {sanitize: true})})
 
 const CurrentPost = ({actions, isReading, title, content, classes}) => (
   <div className={classes.root}>
-
-    <h2> {title} </h2>
+    <Header color='orange' as='h1'>{title}</Header>
     <span
       dangerouslySetInnerHTML={createMarkup(content)}
     />

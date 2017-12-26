@@ -5,6 +5,8 @@ import { Fullpage } from 'fullpage-react'
 const { changeHorizontalSlide } = Fullpage
 // import { changeHorizontalSlide } from 'fullpage-react'
 
+import { PERSONAL_SUBAPP } from 'reducers/navigation'
+
 // Connecting to Firebase Database and Storage
 // (See index.html for Firebase import.)
 var database = firebase.database()
@@ -25,6 +27,19 @@ export const toggleDrawerSideMobileOpen = () => (
     type: ActionTypes.TOGGLE_DRAWER_SIDE_MOBILE_OPEN
   }
 )
+
+export const changeSubApp = subApp => (
+  {
+    type: ActionTypes.CHANGE_SUBAPP,
+    subApp: subApp
+  }
+)
+
+export const returnToPersonalApp = () =>
+  function (dispatch) {
+    // dispatch(changeSlide('horizontalSlider1', 0))
+    dispatch(changeSubApp(PERSONAL_SUBAPP))
+  }
 
 export const setPanel = panel => (
   {

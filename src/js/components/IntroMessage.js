@@ -63,9 +63,13 @@ const messageByLine = lines => (
         hideWhenDoneDelay: 1000}}
     >
       <Typist.Delay ms={line.delay} />
-      {line.isEval
-        ? <Header as='h1' color='orange'>{line.text}</Header>
-        : <Header as='h1'>{line.text}</Header>}
+      <Header
+        as='h2'
+        color={line.isEval ? 'orange' : 'black'}
+      >
+        {line.text}
+      </Header>
+
     </Typist>)
 )
 
