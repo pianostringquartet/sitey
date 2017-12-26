@@ -2,8 +2,6 @@ import React from 'react'
 import { Fullpage, Slide, HorizontalSlider } from 'fullpage-react'
 
 import IntroMessage from 'components/IntroMessage'
-import Life from 'components/Life'
-import SemanticLife from 'components/SemanticLife'
 
 import HSlider from 'utils/HorizontalSlider'
 
@@ -12,14 +10,7 @@ import NowPanel from 'components/now/NowPanel'
 import ProjectsPanel from 'components/projects/ProjectsPanel'
 import BlogPanel from 'components/blog/BlogPanel'
 
-// const horizontalSlides = [
-//   <Slide> <AboutPanel /> </Slide>,
-//   <Slide> <NowPanel /> </Slide>,
-  // {<Slide> <ProjectsPanel /> </Slide>}
-// ]
-
 const horizontalSlides = [
-  <Slide> <SemanticLife /> </Slide>,
   <Slide> <NowPanel /> </Slide>,
   <Slide> <ProjectsPanel /> </Slide>,
   <Slide> <BlogPanel /> </Slide>

@@ -1,12 +1,11 @@
 import React from 'react'
 
 import { Slide } from 'fullpage-react'
-import SemanticLife from 'components/SemanticLife'
+
 import AboutPanel from 'components/about/AboutPanel'
 import NowPanel from 'components/now/NowPanel'
 import ProjectsPanel from 'components/projects/ProjectsPanel'
 import BlogPanel from 'components/blog/BlogPanel'
-import NewBlogPanel from 'components/blog/NewBlogPanel'
 
 import { CHANGE_SUBAPP,
           CHANGE_PANEL,
@@ -24,11 +23,11 @@ export const NOW_SLIDE = 'now'
 
 export const HORIZONTAL_SLIDER_NAME = 'horizontalSlider1'
 
+// whichever panel is first in this array
+// will be shown immediately after 'intro message'
 const HORIZONTAL_PANELS = {
-  [BLOG_PANEL]: <NewBlogPanel />,
+  [ABOUT_PANEL]: <AboutPanel />,
   [NOW_PANEL]: <NowPanel />,
-  [ABOUT_PANEL]: <SemanticLife />,
-
   [PROJECTS_PANEL]: <ProjectsPanel />
 
 }

@@ -1,21 +1,14 @@
-// We are using node's native package 'path'
-// https://nodejs.org/api/path.html
-const path = require('path');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-// Constant with our paths
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),
   SRC: path.resolve(__dirname, 'src'),
   JS: path.resolve(__dirname, 'src/js'),
   PUBLIC: path.resolve(__dirname, 'public')
-};
+}
 
-// Webpack configuration:
-// the entry point for our app, and
-// the output point
 module.exports = {
   entry: ['whatwg-fetch', path.join(paths.JS, 'app.js')],
   output: {
@@ -24,9 +17,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        template: path.join(paths.PUBLIC, 'index.html'),
+      template: path.join(paths.PUBLIC, 'index.html')
     }),
-    new ExtractTextPlugin('style.bundle.css'),
+    new ExtractTextPlugin('style.bundle.css')
   ],
   module: {
     rules: [
@@ -34,43 +27,33 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
-          'babel-loader',
-        ],
+          'babel-loader'
+        ]
       },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          use: 'css-loader',
-        }),
+          use: 'css-loader'
+        })
       },
       {
         test: /\.(png|jpg|gif)$/,
         use: [
-          'file-loader',
-        ],
-      },
-    ],
+          'file-loader'
+        ]
+      }
+    ]
   },
   resolve: {
-        modules: ['src/js', 'node_modules'],
-        extensions: ['.jsx', '.js'],
-        alias: { // for shorter import references
-            actions: path.resolve(__dirname, 'src', 'js', 'actions'),
-            constants: path.resolve(__dirname, 'src', 'js', 'constants'),
-            reducers: path.resolve(__dirname, 'src', 'js', 'reducers'),
-            components: path.resolve(__dirname, 'src', 'js', 'components'),
-
-            // remove later?
-            containers: path.resolve(__dirname, 'src', 'js', 'containers'),
-            panels: path.resolve(__dirname, 'src', 'js', 'components', 'panels'),
-            utils: path.resolve(__dirname, 'src', 'js', 'components', 'utils'),
-
-        }
-    },
-
-
-
-  // devServer: {
-  //   contentBase: paths.SRC,
-  // },
-};
+    modules: ['src/js', 'node_modules'],
+    extensions: ['.jsx', '.js'],
+    alias: { // for shorter import references
+      assets: path.resolve(paths.PUBLIC, 'assets'),
+      actions: path.resolve(paths.JS, 'actions'),
+      constants: path.resolve(paths.JS, 'constants'),
+      reducers: path.resolve(paths.JS, 'reducers'),
+      components: path.resolve(paths.JS, 'components'),
+      utils: path.resolve(paths.JS, 'components', 'utils') // remove later?
+    }
+  }
+}

@@ -1,151 +1,122 @@
 import React from 'react'
-import Typography from 'material-ui/Typography'
-import VerticalGrid from 'utils/VerticalGrid'
-import Avatar from 'material-ui/Avatar'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { changeSlide } from 'actions/Actions'
 
-import Grid from 'material-ui/Grid'
+import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
 
-import PaperSheet from 'utils/PaperSheet'
+import {
+  BLOG_SUBAPP,
+  HORIZONTAL_SLIDER_NAME, NOW_PANEL,
+  PROJECTS_PANEL, BLOG_PANEL, ABOUT_PANEL } from 'reducers/navigation'
 
-import profileImage from '../../../../public/assets/profile_image.jpg'
+import { Fullpage } from 'fullpage-react'
 
-const ProfilePicture = () =>
-  <Avatar
-    alt='Christian Clampitt'
-    src={profileImage}
-    style={{width: 200, height: 200}}
-  />
+import profileImage from 'assets/profile_image.jpg'
 
-// const aboutPanelItems = [
-//   {
-//     id: 0,
-//     item: <ProfilePicture />
-//   },
-//   {
-//     id: 1,
-//     item: <Typography type='display1'>ABOUT</Typography>
-//   },
-//   {
-//     id: 2,
-//     item: <Typography>My name is Chris. I'm a philosopher-turned-developer.</Typography>
-//   },
-//   {
-//     id: 3,
-//     item: <Typography>CV here.</Typography>
-//   },
-//   {
-//     id: 4,
-//     item: <Typography>Born and raised in Colorado USA.</Typography>
-//   },
-//   {
-//     id: 5,
-//     item: <Typography>Lived and worked in New York, South Korea, France, Boston.</Typography>
-//   },
-//   {
-//     id: 6,
-//     item: <Typography>Ich ziehe im Januar 2018 nach Berlin um.</Typography>
-//   }
-// ]
+const { changeHorizontalSlide } = Fullpage
 
-const leftItems = [
-  {
-    id: 0,
-    item: <ProfilePicture />
-  },
-  {
-    id: 1,
-    item: 'Contact me: cjc500@nyu.edu'
-  }
-]
+const mbamURL = 'https://www.mbam.qc.ca'
 
-const rightItems = [
-  {
-    id: 2,
-    item: <Typography>My name is Chris. I'm a philosopher-turned-developer.</Typography>
-  },
-  {
-    id: 3,
-    item: <Typography>CV here.</Typography>
-  },
-  {
-    id: 4,
-    item: <Typography>Born and raised in Colorado USA.</Typography>
-  },
-  {
-    id: 5,
-    item: <Typography>Lived and worked in New York, South Korea, France, Boston.</Typography>
-  },
-  {
-    id: 6,
-    item: <Typography>Ich ziehe im Januar 2018 nach Berlin um.</Typography>
-  }
-]
+const ProfileList = () => (
+  <List>
+    <List.Item>
+      <List.Icon name='linkedin square' />
+      <List.Content>LinkedIn</List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='angellist' />
+      <List.Content>
+        <a href='https://angel.co/christian-clampitt'>angel.co/christian-clampitt</a>
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='sticky note' />
+      <List.Content>CV</List.Content>
+    </List.Item>
 
-const AboutGridLeft = ({items}) => (
-  <Grid container direction='column' spacing={24}>
-    {items.map(x => (<Grid item key={x.id}> {x.item} </Grid>))}
+    <List.Item>
+      <List.Icon name='paint brush' />
+      <List.Content>
+        <a href='https://ccbilder.tumblr.com/'>sketches, paintings</a>
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='mail' />
+      <List.Content>
+        <a href='mailto:christian.clampitt@nyu.edu'>christian.clampitt@nyu.edu</a>
+      </List.Content>
+    </List.Item>
+    <List.Item>
+      <List.Icon name='github' />
+      <List.Content>
+        <a href='https://github.com/pianostringquartet/'>github/pianostringquartet</a>
+      </List.Content>
+    </List.Item>
+  </List>
+)
+
+const ChrisLifeGrid = ({actions}) => (
+  <Grid stackable columns={2}>
+
+    <Grid.Row>
+      <Header color='green'>
+        <Icon name='hand peace' />
+        ABOUT
+      </Header>
+    </Grid.Row>
+
+    <Grid.Column width={6}>
+      <Image src={profileImage} size='small' />
+      <ProfileList />
+    </Grid.Column>
+
+    <Grid.Column>
+
+      <Header as='h3'>
+        Hi, I'm Chris.
+      </Header>
+      <Header as='h3'>
+        Let's build something together:
+      </Header>
+
+      <Header color='orange' onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS_PANEL)}>
+          See some code.
+          </Header>
+      <Header color='purple' onClick={() => window.open(mbamURL)}>
+            Read the blog.
+          </Header>
+      <Header color='red' onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, NOW_PANEL)}>
+            What I'm doing now.
+          </Header>
+      <Header as='h3' color='black'>
+        <a href='mailto:christian.clampitt@nyu.edu'>Get in touch.</a>
+      </Header>
+    </Grid.Column>
+
   </Grid>
 )
 
-const AboutGridRight = ({items}) => (
-  <Grid container direction='column' spacing={24}>
-    {items.map(x => (<Grid item key={x.id}> {x.item} </Grid>))}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ changeSlide }, dispatch)
+})
+
+const ConnectedChrisLifeGrid = connect(
+  null,
+  mapDispatchToProps
+)(ChrisLifeGrid)
+
+// <ChrisLifeGrid />
+const ChrisLifeCard = () => (
+  <Grid
+    container
+    centered
+    textAlign='center'
+    style={{ height: '100%' }}
+    verticalAlign='middle'
+  >
+    <ConnectedChrisLifeGrid />
   </Grid>
 )
 
-const AboutGrid = () => (
-  <Grid container direction='row' spacing={24}>
-    <AboutGridLeft items={leftItems} />
-    <AboutGridRight items={rightItems} />
-  </Grid>
-)
-
-// const AboutGrid = ({items}) => (
-//   <Grid container spacing={24}>
-//     {items.map(x => (<Grid item key={x.id}> {x.item} </Grid>))}
-//   </Grid>
-// )
-
-// might not need grid?
-// or, Paper should contain Grid?
-// const AboutGrid = ({items}) => (
-//   <Grid container spacing={24}>
-//     {items.map(x => (<Grid item key={x.id}> {x.item} </Grid>))}
-//   </Grid>
-// )
-
-// export default () => <PaperSheet item={<AboutGrid items={aboutPanelItems} />} />
-export default () => <PaperSheet item={<AboutGrid />} />
-
-// OLD:
-
-// const aboutPanelItems = [
-//   {
-//     id: 1,
-//     item: <Typography type='display1'>ABOUT</Typography>
-//   },
-//   {
-//     id: 2,
-//     item: <Typography>My name is Chris. I'm a philosopher-turned-developer.</Typography>
-//   },
-//   {
-//     id: 3,
-//     item: <Typography>CV here.</Typography>
-//   },
-//   {
-//     id: 4,
-//     item: <Typography>Was born and raised in Colorado USA.</Typography>
-//   },
-//   {
-//     id: 5,
-//     item: <Typography>Have lived and worked in New York, South Korea, France, Boston.</Typography>
-//   },
-//   {
-//     id: 6,
-//     item: <Typography>Ich ziehe im Januar 2018 nach Berlin um.</Typography>
-//   }
-// ]
-
-// const AboutPanel = () => <VerticalGrid items={aboutPanelItems} />
-
-// export default AboutPanel
+export default ChrisLifeCard
