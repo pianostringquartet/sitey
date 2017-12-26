@@ -1,22 +1,13 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { changeSlide } from 'actions/Actions'
-
-import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
-
-import {
-  BLOG_SUBAPP,
-  HORIZONTAL_SLIDER_NAME, NOW_PANEL,
-  PROJECTS_PANEL, BLOG_PANEL, ABOUT_PANEL } from 'reducers/navigation'
-
-import { Fullpage } from 'fullpage-react'
-
+import { Segment, List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
+import { HORIZONTAL_SLIDER_NAME, NOW_PANEL, PROJECTS_PANEL, ABOUT_PANEL } from '../navigation'
 import profileImage from 'assets/profile_image.jpg'
 
-const { changeHorizontalSlide } = Fullpage
-
+const angelListURL = 'https://angel.co/christian-clampitt'
 const mbamURL = 'https://www.mbam.qc.ca'
+const artURL = 'https://ccbilder.tumblr.com/'
+const mailURL = 'mailto:christian.clampitt@nyu.edu'
+const githubURL = 'https://github.com/pianostringquartet/'
 
 const ProfileList = () => (
   <List>
@@ -27,7 +18,7 @@ const ProfileList = () => (
     <List.Item>
       <List.Icon name='angellist' />
       <List.Content>
-        <a href='https://angel.co/christian-clampitt'>angel.co/christian-clampitt</a>
+        <a href={angelListURL}>angel.co/christian-clampitt</a>
       </List.Content>
     </List.Item>
     <List.Item>
@@ -38,25 +29,25 @@ const ProfileList = () => (
     <List.Item>
       <List.Icon name='paint brush' />
       <List.Content>
-        <a href='https://ccbilder.tumblr.com/'>sketches, paintings</a>
+        <a href={artURL}>sketches, paintings</a>
       </List.Content>
     </List.Item>
     <List.Item>
       <List.Icon name='mail' />
       <List.Content>
-        <a href='mailto:christian.clampitt@nyu.edu'>christian.clampitt@nyu.edu</a>
+        <a href={mailURL}>christian.clampitt@nyu.edu</a>
       </List.Content>
     </List.Item>
     <List.Item>
       <List.Icon name='github' />
       <List.Content>
-        <a href='https://github.com/pianostringquartet/'>github/pianostringquartet</a>
+        <a href={githubURL}>github/pianostringquartet</a>
       </List.Content>
     </List.Item>
   </List>
 )
 
-const ChrisLifeGrid = ({actions}) => (
+const ChrisLifeGrid = () => (
   <Grid stackable columns={2}>
 
     <Grid.Row>
@@ -75,18 +66,18 @@ const ChrisLifeGrid = ({actions}) => (
 
       <Header as='h3'>
         Hi, I'm Chris.
-      </Header>
-      <Header as='h3'>
-        Let's build something together:
+        <Header size='tiny'>
+          Let's build something together!
+        </Header>
       </Header>
 
-      <Header color='orange' onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS_PANEL)}>
+      <Header color='orange' onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS_PANEL)}>
           See some code.
           </Header>
       <Header color='purple' onClick={() => window.open(mbamURL)}>
             Read the blog.
           </Header>
-      <Header color='red' onClick={() => actions.changeSlide(HORIZONTAL_SLIDER_NAME, NOW_PANEL)}>
+      <Header color='red' onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, NOW_PANEL)}>
             What I'm doing now.
           </Header>
       <Header as='h3' color='black'>
@@ -97,17 +88,8 @@ const ChrisLifeGrid = ({actions}) => (
   </Grid>
 )
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ changeSlide }, dispatch)
-})
-
-const ConnectedChrisLifeGrid = connect(
-  null,
-  mapDispatchToProps
-)(ChrisLifeGrid)
-
-// <ChrisLifeGrid />
 const ChrisLifeCard = () => (
+
   <Grid
     container
     centered
@@ -115,8 +97,9 @@ const ChrisLifeCard = () => (
     style={{ height: '100%' }}
     verticalAlign='middle'
   >
-    <ConnectedChrisLifeGrid />
+    <ChrisLifeGrid />
   </Grid>
+
 )
 
 export default ChrisLifeCard

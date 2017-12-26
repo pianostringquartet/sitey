@@ -2,9 +2,13 @@ import React from 'react'
 
 import { List, Grid, Header, Card, Icon, Image } from 'semantic-ui-react'
 
-import pontormoImage from '../../../../public/assets/pontormo-sacra-conversazione.jpg'
-import jsImage from '../../../../public/assets/js_logo.png'
-import cljsImage from '../../../../public/assets/clojure_logo.png'
+import pontormoImage from 'assets/pontormo-sacra-conversazione.jpg'
+import jsImage from 'assets/js_logo.png'
+import cljsImage from 'assets/clojure_logo.png'
+
+const pontormoURL = 'https://en.wikipedia.org/wiki/Pontormo'
+const jsURL = 'https://redux.js.org/'
+const cljsURL = 'http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs'
 
 const simpleMadeEasyURL = 'https://www.infoq.com/presentations/Simple-Made-Easy'
 const beatingTheAveragesURL = 'http://www.paulgraham.com/avg.html'
@@ -48,7 +52,7 @@ const CurrentLovesList = () => (
 )
 
 const NowGrid = () => (
-  <Grid columns={2} relaxed>
+  <Grid columns={2} stackable relaxed>
 
     <Grid.Row>
       <Header color='red'>
@@ -58,38 +62,32 @@ const NowGrid = () => (
     </Grid.Row>
 
     <Grid.Column>
-      <Image src={pontormoImage} size='large' />
+      <Image
+        src={pontormoImage}
+        size='large'
+        onClick={() => window.open(pontormoURL)}
+         />
     </Grid.Column>
 
     <Grid.Column>
       <Grid>
         <Grid.Row>
           <Image.Group size='small'>
-            <Image src={jsImage} spaced />
-            <Image src={cljsImage} spaced />
+            <Image
+              src={jsImage}
+              spaced
+              onClick={() => window.open(jsURL)}
+            />
+            <Image
+              src={cljsImage}
+              spaced
+              onClick={() => window.open(cljsURL)}
+            />
           </Image.Group>
         </Grid.Row>
 
         <Grid.Row >
           <CurrentLovesList />
-          {/* <Header as='h4'
-            onClick={() => window.open(simpleMadeEasyURL)}
-          >
-            Rich Hickey: Simple Made Easy
-          </Header>
-          <Header as='h4'
-            onClick={() => window.open(beatingTheAveragesURL)}
-            >Paul Graham: Beating The Averages
-            </Header>
-          <Header
-            as='h4'
-            onClick={() => window.open(ladderOfAbstractionURL)}
-            >
-            Bret Victor: The Ladder of Abstraction
-            </Header>
-          <Header as='h4'>
-              Ich ziehe im Januar 2018 nach Berlin um.
-          </Header> */}
         </Grid.Row>
       </Grid>
     </Grid.Column>

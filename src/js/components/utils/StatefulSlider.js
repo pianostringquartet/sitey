@@ -1,15 +1,7 @@
 import React from 'react'
-
 import { Fullpage, HorizontalSlider, Slide } from 'fullpage-react'
-const { changeFullpageSlide, changeHorizontalSlide } = Fullpage
-
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import { changeSlide } from 'actions/Actions'
-
 import IntroMessage from 'components/IntroMessage'
-
-import { HORIZONTAL_SLIDER_NAME, horizontalSlides } from 'reducers/navigation'
+import { HORIZONTAL_SLIDER_NAME, horizontalSlides } from '../../navigation'
 
 const theSlides = [
   <Slide> <IntroMessage /> </Slide>,
@@ -32,15 +24,4 @@ const FullpageReact = ({slides}) => (
   />
 )
 
-// const mapStateToProps = state => ({
-//   currentSlide: state.navigation.currentSlide // horizontal slide
-// })
-
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({ changeSlide }, dispatch)
-})
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(() => <FullpageReact slides={theSlides} />)
+export default () => <FullpageReact slides={theSlides} />

@@ -10,7 +10,7 @@ const postyGithubURL = 'https://github.com/pianostringquartet/posty'
 // it provides links to each github project you did (Cardy, Posty),
 // as well as a link to a blog post that summarizes
 const ProjectsGrid = () => (
-  <Grid columns={3} divided>
+  <Grid columns={3} stackable divided>
 
     <Grid.Row>
       <Header color='orange'>

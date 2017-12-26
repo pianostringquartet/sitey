@@ -49,9 +49,6 @@ module.exports = {
     extensions: ['.jsx', '.js'],
     alias: { // for shorter import references
       assets: path.resolve(paths.PUBLIC, 'assets'),
-      actions: path.resolve(paths.JS, 'actions'),
-      constants: path.resolve(paths.JS, 'constants'),
-      reducers: path.resolve(paths.JS, 'reducers'),
       components: path.resolve(paths.JS, 'components'),
       utils: path.resolve(paths.JS, 'components', 'utils') // remove later?
     }
