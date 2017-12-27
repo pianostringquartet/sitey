@@ -19,8 +19,9 @@ export const changeSlide = (horizontalSliderName, slide) => (
 )
 
 const HORIZONTAL_SLIDES = {
-  [ABOUT]: <About />,
   [NOW]: <Now />,
+  [ABOUT]: <About />,
+
   [PROJECTS]: <Projects />
 }
 

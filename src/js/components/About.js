@@ -45,13 +45,13 @@ const profileListItems = [
     id: 4,
     icon: 'mail',
     url: mailURL,
-    content: 'christian.clampitt@nyu.edu'
+    content: 'christian dot clampitt at nyu.edu'
   },
   {
     id: 5,
     icon: 'github',
     url: githubURL,
-    content: 'github/pianostringquartet'
+    content: 'github - pianostringquartet'
   }
 ]
 

@@ -38,10 +38,9 @@ const currentLovesListItems = [
 ]
 
 const CurrentLovesList = ({ items }) => (
-  <List relaxed size='large'>
+  <List relaxed size='medium'>
     {items.map(item =>
       <List.Content key={item.id}>
-        <br />
         <List.Header href={item.url}> {item.header} </List.Header>
         <List.Description> {item.description} </List.Description>
       </List.Content>)}
@@ -49,13 +48,13 @@ const CurrentLovesList = ({ items }) => (
 )
 
 const PontormoImage = () =>
-  <Image src={pontormoImage} href={pontormoURL} target='_blank' />
+  <Image fluid src={pontormoImage} href={pontormoURL} target='_blank' />
 
 const CljsImage = () =>
-  <Image spaced src={cljsImage} href={cljsURL} target='_blank' />
+  <Image inline spaced src={cljsImage} href={cljsURL} target='_blank' />
 
 const JsImage = () =>
-  <Image spaced src={jsImage} href={jsURL} target='_blank' />
+  <Image inline spaced src={jsImage} href={jsURL} target='_blank' />
 
 const NowSlide = () => (
   <Grid columns={2} stackable relaxed>
@@ -69,7 +68,7 @@ const NowSlide = () => (
     <Grid.Column>
       <Grid>
         <Grid.Row>
-          <Image.Group size='small'>
+          <Image.Group size='tiny'>
             <JsImage />
             <CljsImage />
           </Image.Group>
@@ -78,8 +77,7 @@ const NowSlide = () => (
           <CurrentLovesList items={currentLovesListItems} />
         </Grid.Row>
         <Grid.Row>
-          <br />
-          <Header color='red'>
+          <Header size='small' color='red'>
             Ich ziehe im Januar 2018 nach Berlin um.
           </Header>
         </Grid.Row>

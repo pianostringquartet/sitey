@@ -4,9 +4,7 @@ import { render } from 'react-dom'
 import StatefulSlider from 'utils/StatefulSlider'
 
 const PostyApp = () => (
-  <div>
-    <StatefulSlider />
-  </div>
+  <StatefulSlider />
 )
 
 render(<PostyApp />, document.getElementById('app'))
