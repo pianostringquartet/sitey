@@ -3,7 +3,7 @@ import { Fullpage, HorizontalSlider, Slide } from 'fullpage-react'
 import IntroMessage from 'components/IntroMessage'
 import { HORIZONTAL_SLIDER_NAME, horizontalSlides } from '../../navigation'
 
-const theSlides = [
+const slides = [
   <Slide> <IntroMessage /> </Slide>,
   <HorizontalSlider
     name={HORIZONTAL_SLIDER_NAME}
@@ -24,4 +24,4 @@ const FullpageReact = ({slides}) => (
   />
 )
 
-export default () => <FullpageReact slides={theSlides} />
+export default () => <FullpageReact slides={slides} />
