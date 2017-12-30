@@ -7,7 +7,7 @@ import HideOnMobile from 'utils/HideOnMobile'
 import { changeSlide } from '../navigation'
 import { HORIZONTAL_SLIDER_NAME, NOW, PROJECTS } from '../navigation'
 
-const linkedInURL = 'https://www.linkedin.com/'
+const linkedInURL = 'https://www.linkedin.com/in/christian-clampitt'
 const angelListURL = 'https://angel.co/christian-clampitt'
 const cvURL = 'https://www.visualcv.com/'
 const artURL = 'https://ccbilder.tumblr.com/'
@@ -20,7 +20,7 @@ const profileListItems = [
     id: 0,
     icon: 'linkedin square',
     url: linkedInURL,
-    content: 'LinkedIn'
+    content: 'linkedin.com/in/christian-clampitt'
   },
   {
     id: 1,
@@ -60,7 +60,7 @@ const ProfileList = ({ items }) =>
       <List.Item key={item.id}>
         <List.Icon name={item.icon} />
         <List.Content>
-          <a href={item.url}>{item.content}</a>
+          <a href={item.url} target='_blank'>{item.content}</a>
         </List.Content>
       </List.Item>)}
   </List>
