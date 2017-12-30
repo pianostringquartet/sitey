@@ -1,7 +1,7 @@
 import React from 'react'
-import { Container, List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
-const CenteringGrid = ({content}) => (
+const CenteringGrid = ({ content }) => (
   <Grid
     verticalAlign='middle'
     style={{

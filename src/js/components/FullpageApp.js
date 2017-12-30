@@ -1,18 +1,18 @@
 import React from 'react'
 import { Fullpage, HorizontalSlider, Slide } from 'fullpage-react'
 import IntroMessage from 'components/IntroMessage'
-import { HORIZONTAL_SLIDER_NAME, horizontalSlides } from '../../navigation'
+import { HORIZONTAL_SLIDER_NAME, horizontalSlides } from '../navigation'
 
 const slides = [
-  <Slide> <IntroMessage /> </Slide>,
-  <HorizontalSlider
+  <Slide> <IntroMessage /> </Slide>, // vertical slide
+  <HorizontalSlider // horizontal slides
     name={HORIZONTAL_SLIDER_NAME}
     infinite
     slides={horizontalSlides}
    />
 ]
 
-const FullpageReact = ({slides}) => (
+const FullpageApp = ({slides}) =>
   <Fullpage
     scrollSensitivity={7}
     touchSensitivity={7}
@@ -22,6 +22,5 @@ const FullpageReact = ({slides}) => (
     breakpoint={375}
     slides={slides}
   />
-)
 
-export default () => <FullpageReact slides={slides} />
+export default () => <FullpageApp slides={slides} />

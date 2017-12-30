@@ -1,6 +1,5 @@
 import React from 'react'
 import { Slide, Fullpage } from 'fullpage-react'
-
 import About from 'components/About'
 import Now from 'components/Now'
 import Projects from 'components/Projects'
@@ -9,19 +8,15 @@ export const NOW = 'now'
 export const PROJECTS = 'projects'
 export const ABOUT = 'about'
 
-export const BLOG_URL = 'https://google.com'
 export const HORIZONTAL_SLIDER_NAME = 'horizontalSlider1'
 
-const { changeHorizontalSlide } = Fullpage
-
 export const changeSlide = (horizontalSliderName, slide) => (
-  changeHorizontalSlide(horizontalSliderName, slideNameToIndex(slide))
+  Fullpage.changeHorizontalSlide(horizontalSliderName, slideNameToIndex(slide))
 )
 
 const HORIZONTAL_SLIDES = {
-  [NOW]: <Now />,
   [ABOUT]: <About />,
-
+  [NOW]: <Now />,
   [PROJECTS]: <Projects />
 }
 

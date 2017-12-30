@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import Typist from 'react-typist'
-import Typography from 'material-ui/Typography'
-import Paper from 'material-ui/Paper'
+import { Header, Grid } from 'semantic-ui-react'
 
-import { Header, Grid, Card, Container } from 'semantic-ui-react'
-
+/*
+Pseudo Clojure REPL introduction:
+- Illusion of user typing vs. eval is created by different typing speeds.
+- A new typing speed requires a new Typist component,
+    so we use delays to make Typists type in sequence instead of concurrently.
+*/
 const introLines = [
   {
     id: 0,
@@ -63,57 +66,18 @@ const messageByLine = lines => (
         hideWhenDoneDelay: 1000}}
     >
       <Typist.Delay ms={line.delay} />
-      <Header
-        as='h2'
-        color={line.isEval ? 'orange' : 'black'}
-      >
+      <Header as='h2' color={line.isEval ? 'orange' : 'black'}>
         {line.text}
       </Header>
-
     </Typist>)
 )
 
-      // {line.isEval
-      //   ? <Typography color='accent'>{line.text}</Typography>
-      //   : <Typography>{line.text}</Typography>}
-
-// const MessageCard = () => (
-//   <Card raised >
-//     <Card.Content textAlign='left'>
-//       {messageByLine(introLines)}
-//     </Card.Content>
-//   </Card>
-// )
-
-// const MessageCard = () => (
-//   <Card raised >
-//     <Card.Content textAlign='left'>
-//       {messageByLine(introLines)}
-//     </Card.Content>
-//   </Card>
-// )
-
-// export default () => messageByLine(introLines)
-
-{ /* <Container fluid text textAlign='left'> */ }
-// export default () => (
-//   <Grid container centered columns={1}>
-//     <Grid.Column textAlign='left'>
-//       {messageByLine(introLines)}
-//     </Grid.Column>
-//   </Grid>
-// )
-
 export default () => (
-  <Grid
-    container
-    centered
-    columns={1}
-  >
+  <Grid container centered columns={1}>
     <Grid.Column
       textAlign='left'
       style={{
-        fontSize: '4em', // why does this contribute to centering? what is '4em'?
+        fontSize: '4em',
         marginBottom: 0,
         marginTop: '3em' }}
     >

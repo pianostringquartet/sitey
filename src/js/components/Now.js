@@ -1,10 +1,8 @@
 import React from 'react'
 import { List, Grid, Header, Card, Icon, Image } from 'semantic-ui-react'
-
 import CenteringGrid from 'utils/CenteringGrid'
 import SlideNameTag from 'utils/SlideNameTag'
 import HideOnMobile from 'utils/HideOnMobile'
-
 import pontormoImage from 'assets/pontormo-sacra-conversazione.jpg'
 import jsImage from 'assets/js_logo.png'
 import cljsImage from 'assets/clojure_logo.png'
@@ -37,15 +35,15 @@ const currentLovesListItems = [
   }
 ]
 
-const CurrentLovesList = ({ items }) => (
-  <List relaxed size='medium'>
+const CurrentLovesList = ({ items }) =>
+  <List relaxed='very' size='large'>
     {items.map(item =>
       <List.Content key={item.id}>
+        <br />
         <List.Header href={item.url}> {item.header} </List.Header>
         <List.Description> {item.description} </List.Description>
       </List.Content>)}
   </List>
-)
 
 const PontormoImage = () =>
   <Image fluid src={pontormoImage} href={pontormoURL} target='_blank' />
@@ -56,15 +54,12 @@ const CljsImage = () =>
 const JsImage = () =>
   <Image inline spaced src={jsImage} href={jsURL} target='_blank' />
 
-const NowSlide = () => (
+const NowSlide = () =>
   <Grid columns={2} stackable relaxed>
-
     <SlideNameTag color='red' icon='hand spock' content='NOW' />
-
     <Grid.Column>
       <HideOnMobile content={<PontormoImage />} />
     </Grid.Column>
-
     <Grid.Column>
       <Grid>
         <Grid.Row>
@@ -77,14 +72,12 @@ const NowSlide = () => (
           <CurrentLovesList items={currentLovesListItems} />
         </Grid.Row>
         <Grid.Row>
-          <Header size='small' color='red'>
+          <Header size='medium' color='red'>
             Ich ziehe im Januar 2018 nach Berlin um.
           </Header>
         </Grid.Row>
       </Grid>
     </Grid.Column>
-
   </Grid>
-)
 
 export default () => <CenteringGrid content={<NowSlide />} />
