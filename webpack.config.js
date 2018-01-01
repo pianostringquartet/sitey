@@ -41,6 +41,18 @@ module.exports = {
         use: [
           'file-loader'
         ]
+      },
+    // added:
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'html-loader'
+          },
+          {
+            loader: 'markdown-loader'
+          }
+        ]
       }
     ]
   },

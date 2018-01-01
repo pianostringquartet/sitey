@@ -7,13 +7,14 @@ import HideOnMobile from 'utils/HideOnMobile'
 import { changeSlide } from '../navigation'
 import { HORIZONTAL_SLIDER_NAME, NOW, PROJECTS } from '../navigation'
 
+export const BLOG_NAME = 'chrisclampittblog.life/'
 const linkedInURL = 'https://www.linkedin.com/in/christian-clampitt'
 const angelListURL = 'https://angel.co/christian-clampitt'
-const cvURL = 'https://www.visualcv.com/'
+const cvURL = 'https://chrisclampitt.life/#/cv'
 const artURL = 'https://ccbilder.tumblr.com/'
 const mailURL = 'mailto:christian.clampitt@nyu.edu'
 const githubURL = 'https://github.com/pianostringquartet/'
-const blogURL = 'https://posty-blog-app.firebaseapp.com/'
+const blogURL = 'https://' + BLOG_NAME
 
 const profileListItems = [
   {

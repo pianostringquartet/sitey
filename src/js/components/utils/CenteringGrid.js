@@ -7,7 +7,7 @@ const CenteringGrid = ({ content }) => (
     style={{
       margin: 'auto',
       height: '100%',
-      width: '60%'}}
+      width: '55%'}}
     >
     {content}
   </Grid>
