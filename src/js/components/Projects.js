@@ -6,8 +6,8 @@ import { BLOG_NAME } from 'components/About'
 
 const abstractionPostURL = 'https://' + BLOG_NAME + '#/How&to&do&an&abstraction&layer'
 const cardyGithubURL = 'https://github.com/pianostringquartet/cardy'
-const postyGithubURL = 'https://github.com/pianostringquartet/posty'
 const siteyGithubURL = 'https://github.com/pianostringquartet/sitey'
+const clarifaiClJGithubURL = 'https://github.com/pianostringquartet/clarifai-clj'
 
 const projectsListItems = [
   {
@@ -24,14 +24,14 @@ const projectsListItems = [
   },
   {
     id: 2,
-    header: 'posty',
-    description: 'a blog with Redux + Firebase.',
-    url: postyGithubURL
+    header: 'clarifai-clj',
+    description: 'Clojure library for Clarifai\'s Predict API',
+    url: clarifaiClJGithubURL
   },
   {
     id: 3,
     header: 'sitey',
-    description: 'a personal site with Fullpage.js + Semantic UI.',
+    description: 'a personal site with Redux + Firebase',
     url: siteyGithubURL
   }
 ]
