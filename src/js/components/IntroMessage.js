@@ -31,7 +31,7 @@ const introLines = [
     id: 3,
     isEval: false,
     delay: 11000,
-    text: '> (:last-four-months chris/life)'
+    text: '> (:the-fun-stuff chris/life)'
   },
   {
     id: 4,

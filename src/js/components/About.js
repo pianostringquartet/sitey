@@ -1,6 +1,6 @@
 import React from 'react'
 import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
-import profileImage from 'assets/bordeaux_profile.jpg'
+import profileImage from 'assets/berlin_profile.jpg'
 import CenteringGrid from 'utils/CenteringGrid'
 import SlideNameTag from 'utils/SlideNameTag'
 import HideOnMobile from 'utils/HideOnMobile'

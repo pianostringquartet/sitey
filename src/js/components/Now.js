@@ -6,13 +6,15 @@ import HideOnMobile from 'utils/HideOnMobile'
 import pontormoImage from 'assets/pontormo-sacra-conversazione.jpg'
 import jsImage from 'assets/js_logo.png'
 import cljsImage from 'assets/clojure_logo.png'
+import catsImage from 'assets/scala_cats.png'
 
 const pontormoURL = 'https://en.wikipedia.org/wiki/Pontormo'
 const jsURL = 'https://redux.js.org/'
 const cljsURL = 'http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs'
+const catsURL = 'https://typelevel.org/cats/'
 const simpleMadeEasyURL = 'https://www.infoq.com/presentations/Simple-Made-Easy'
 const beatingTheAveragesURL = 'http://www.paulgraham.com/avg.html'
-const ladderOfAbstractionURL = 'http://worrydream.com/LadderOfAbstraction/'
+const trentMcConaghyURL = 'https://vimeo.com/213989519'
 
 const currentLovesListItems = [
   {
@@ -29,9 +31,9 @@ const currentLovesListItems = [
   },
   {
     id: 2,
-    header: 'Bret Victor: The Lader of Abstraction',
-    description: 'What tools ought to let us do.',
-    url: ladderOfAbstractionURL
+    header: 'Trent McConaghy: AI, Blockchains, and Humanity',
+    description: 'Thinking about the future.',
+    url: trentMcConaghyURL
   }
 ]
 
@@ -54,6 +56,9 @@ const CljsImage = () =>
 const JsImage = () =>
   <Image inline spaced src={jsImage} href={jsURL} target='_blank' />
 
+const CatsImage = () =>
+  <Image inline spaced src={catsImage} href={catsURL} target='_blank' />
+
 const NowSlide = () =>
   <Grid columns={2} stackable relaxed>
     <SlideNameTag color='red' icon='hand spock' content='NOW' />
@@ -66,6 +71,7 @@ const NowSlide = () =>
           <Image.Group size='tiny'>
             <JsImage />
             <CljsImage />
+            <CatsImage />
           </Image.Group>
         </Grid.Row>
         <Grid.Row >
@@ -73,7 +79,7 @@ const NowSlide = () =>
         </Grid.Row>
         <Grid.Row>
           <Header size='medium' color='red'>
-            Ich ziehe im Januar 2018 nach Berlin um.
+            Ich wohne in Berlin.
           </Header>
         </Grid.Row>
       </Grid>
