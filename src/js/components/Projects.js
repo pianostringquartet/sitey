@@ -6,6 +6,7 @@ import { BLOG_NAME } from 'components/About'
 
 const abstractionPostURL = 'https://' + BLOG_NAME + '#/How&to&do&an&abstraction&layer'
 const cardyGithubURL = 'https://github.com/pianostringquartet/cardy'
+const landschaftenGithubURL = 'https://github.com/pianostringquartet/landschaften#landschaften-visual-explorer-for-paintings-and-their-concepts'
 const siteyGithubURL = 'https://github.com/pianostringquartet/sitey'
 const clarifaiClJGithubURL = 'https://github.com/pianostringquartet/clarifai-clj'
 
@@ -18,9 +19,9 @@ const projectsListItems = [
   },
   {
     id: 1,
-    header: 'cardy',
-    description: 'a flashcard app in Clojurescript + re-frame.',
-    url: cardyGithubURL
+    header: 'landschaften',
+    description: 'visual explorer for paintings and their concepts; Clojure(script) + re-frame.',
+    url: landschaftenGithubURL
   },
   {
     id: 2,
