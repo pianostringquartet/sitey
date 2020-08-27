@@ -10,6 +10,8 @@ const landschaftenGithubURL = 'https://github.com/pianostringquartet/landschafte
 const siteyGithubURL = 'https://github.com/pianostringquartet/sitey'
 const clarifaiClJGithubURL = 'https://github.com/pianostringquartet/clarifai-clj'
 
+// DEPRECATED AS OF AUG 27?
+
 const projectsListItems = [
   {
     id: 0,

@@ -1,15 +1,11 @@
 import React from 'react'
-// import { Grid } from 'semantic-ui-react'
-import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
+import { Grid, Icon, } from 'semantic-ui-react'
 
 import { changeSlide } from '../../navigation'
-import { HORIZONTAL_SLIDER_NAME, NOW, PROJECTS } from '../../navigation'
-
-// was:
-// width: '55%'
+import { HORIZONTAL_SLIDER_NAME, PROJECTS } from '../../navigation'
 
 // would also need to take 'slide to the left,' and 'slide to the right'
-const CenteringGrid = ({ content }) => (
+const CenteringGrid = ({ content, leftSlide, rightSlide }) => (
   <Grid
     verticalAlign='middle'
     columns={3}
@@ -26,7 +22,7 @@ const CenteringGrid = ({ content }) => (
       <Icon
         name='angle left'
         size='huge'
-        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS)}>
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, leftSlide)}>
       </Icon>
     </Grid.Column>
 
@@ -40,7 +36,7 @@ const CenteringGrid = ({ content }) => (
       <Icon
         name='angle right'
         size='huge'
-        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS)}
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, rightSlide)}
       >
       </Icon>
     </Grid.Column>

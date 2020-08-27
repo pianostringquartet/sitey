@@ -4,8 +4,8 @@ import profileImage from 'assets/berlin_profile.jpg'
 import CenteringGrid from 'utils/CenteringGrid'
 import SlideNameTag from 'utils/SlideNameTag'
 import HideOnMobile from 'utils/HideOnMobile'
-import { changeSlide } from '../navigation'
-import { HORIZONTAL_SLIDER_NAME, NOW, PROJECTS } from '../navigation'
+import { changeSlide, aboutNeighbors } from '../navigation'
+import { HORIZONTAL_SLIDER_NAME, RECENT, PAINTINGS, TALKS } from '../navigation'
 
 export const BLOG_NAME = 'chrisclampittblog.life/'
 const linkedInURL = 'https://www.linkedin.com/in/christian-clampitt'
@@ -86,17 +86,20 @@ const PortfolioCard = () =>
       <Header
         color='orange'
         style={{ cursor: 'pointer' }}
-        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS)}>
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, RECENT)}>
         See some code.
       </Header>
-      <Header color='purple' href={blogURL} target='_blank'>
+      <Header 
+        color='purple' 
+        style={{ cursor: 'pointer'}}
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, TALKS)}>
         Read the blog.
       </Header>
       <Header
         color='red'
         style={{ cursor: 'pointer' }}
-        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, NOW)}>
-        What I'm doing now.
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PAINTINGS)}>
+        See some paintings.
       </Header>
       <Header color='green' href={mailURL} target='_blank'>
         Get in touch.
@@ -122,4 +125,10 @@ const About = () => (
   </Grid >
 )
 
-export default () => <CenteringGrid content={<About />} />
+export default () => (
+  <CenteringGrid
+    content={<About />}
+    leftSlide={aboutNeighbors.left}
+    rightSlide={aboutNeighbors.right}
+  />
+);

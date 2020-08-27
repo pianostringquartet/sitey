@@ -9,6 +9,8 @@ import { Grid, Header, Image } from "semantic-ui-react";
 import CenteringGrid from "utils/CenteringGrid";
 import SlideNameTag from "utils/SlideNameTag";
 
+import { recentNeighbors } from "../navigation";
+
 import landschaftenExplore from "assets/landschaften_explore_2.png";
 import landschaftenCompare from "assets/landschaften_compare_2.png";
 
@@ -43,12 +45,8 @@ const LandschaftenCompareImage = () => (
   <Image src={landschaftenCompare} target="_blank" />
 );
 
-
 const landschaftenGithubURL =
   "https://github.com/pianostringquartet/landschaften#landschaften-visual-explorer-for-paintings-and-their-concepts";
-
-
-  
 
 const projectsListItems = [
   {
@@ -77,8 +75,6 @@ const projectsListItems = [
     url: "https://github.com/pianostringquartet/cardy",
   },
 ];
-
-
 
 const RecentProject = () => (
   <Grid>
@@ -147,98 +143,28 @@ const RecentProject = () => (
       </Grid.Column>
     </Grid.Row>
 
-<Grid.Row>
-    {/* MISC PROJECTS */}
-    <Grid columns={4} divided>
+    <Grid.Row>
+      {/* MISC PROJECTS */}
+      <Grid columns={4} divided>
         <Grid.Row>
-            {projectsListItems.map(project => 
-                <Grid.Column key={project.id}>
-                    <Header href={project.url} target='_blank'>
-                        {project.header}
-                        <Header.Subheader>{project.description} </Header.Subheader>
-                    </Header>
-                </Grid.Column>
-                    )}
+          {projectsListItems.map((project) => (
+            <Grid.Column key={project.id}>
+              <Header href={project.url} target="_blank">
+                {project.header}
+                <Header.Subheader>{project.description} </Header.Subheader>
+              </Header>
+            </Grid.Column>
+          ))}
         </Grid.Row>
-    </Grid>
-
-    
-</Grid.Row>
-
+      </Grid>
+    </Grid.Row>
   </Grid>
 );
 
-export default () => <CenteringGrid content={<RecentProject />} />;
-
-{/* <Header>
-  Misc: sitey (typescript, redux, fullpage.js), webscraping (python),
-  clarifai-clj,{" "}
-</Header>; */}
-
-// const RecentProject = () => (
-//   <Grid>
-//     <SlideNameTag color="red" icon="hand spock" content="RECENT PROJECTS" />
-//     {/* LANDSCHAFTEN */}
-//     <Grid.Column width={16}>
-//       <Grid columns={2}>
-//         {/* top row: landschaften */}
-//         <Grid.Row>
-//           <Grid.Column>
-//             <LandschaftenExploreImage />
-//           </Grid.Column>
-//           <Grid.Column>
-//             <Header>
-//               landschaften
-//               <Header.Subheader>
-//                 visual explorer for paintings and their concepts
-//               </Header.Subheader>
-//             </Header>
-
-//             <Grid columns={2}>
-//               <Grid.Column>
-//                 <Header.Subheader>
-//                   Clojurescript, Leiningen, re-frame, ghostwheel (spec)
-//                 </Header.Subheader>
-//               </Grid.Column>
-//               <Grid.Column>
-//                 <Image.Group size="tiny">
-//                   <CljsImage />
-//                 </Image.Group>
-//               </Grid.Column>
-//             </Grid>
-//           </Grid.Column>
-//         </Grid.Row>
-
-//         {/* bottom row: landschaften-service */}
-//         <Grid.Row>
-//           <Grid.Column>
-//             <LandschaftenCompareImage />
-//           </Grid.Column>
-//           <Grid.Column>
-//             <Header>
-//               landschaften-service
-//               <Header.Subheader>
-//                 service-backend for landschaften
-//               </Header.Subheader>
-//             </Header>
-
-//             {/* description and logo row */}
-//             <Grid columns={2}>
-//               <Grid.Column>
-//                 <Header.Subheader>
-//                   Haskell, Stack, Servant (api), postgres
-//                 </Header.Subheader>
-//               </Grid.Column>
-//               <Grid.Column>
-//                 <Image.Group size="tiny">
-//                   <HaskellImage />
-//                 </Image.Group>
-//               </Grid.Column>
-//             </Grid>
-//           </Grid.Column>
-//         </Grid.Row>
-//       </Grid>
-//     </Grid.Column>
-
-//   </Grid>
-// );
+export default () => (
+  <CenteringGrid
+    content={<RecentProject />}
+    leftSlide={recentNeighbors.left}
+    rightSlide={recentNeighbors.right}
+  />
+);

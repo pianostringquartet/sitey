@@ -31,24 +31,24 @@ const introLines = [
     id: 3,
     isEval: false,
     delay: 11000,
-    text: '> (:the-fun-stuff chris/life)'
+    text: '> (:fun chris/life)'
   },
   {
     id: 4,
     isEval: true,
-    delay: 15000,
+    delay: 13500,
     text: '[traveling painting coding]'
   },
   {
     id: 5,
     isEval: false,
-    delay: 17000,
+    delay: 15000,
     text: '> (chris/message-for-friends)'
   },
   {
     id: 6,
     isEval: true,
-    delay: 20500,
+    delay: 19000,
     text: '"Scroll down :-)"'
   }
 ]

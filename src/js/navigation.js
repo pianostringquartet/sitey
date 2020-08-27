@@ -7,8 +7,6 @@ import Paintings from 'components/Paintings'
 import Talks from 'components/Talks'
 import RecentProject from 'components/RecentProject'
 
-export const NOW = 'now'
-export const PROJECTS = 'projects'
 export const ABOUT = 'about'
 export const PAINTINGS = 'paintings'
 export const TALKS = 'talks'
@@ -21,19 +19,31 @@ export const changeSlide = (horizontalSliderName, slide) => (
 )
 
 const HORIZONTAL_SLIDES = {
-  [RECENT]: <RecentProject />,
   [ABOUT]: <About />,
-
-  // added:
-  [PAINTINGS]: <Paintings />,
+  [RECENT]: <RecentProject />,
   [TALKS]: <Talks />,
-  
+  [PAINTINGS]: <Paintings />,
+};
 
-  
-  // deprecated:
-  [NOW]: <Now />,
-  [PROJECTS]: <Projects />
-  
+// TODO: Replace with programmatic, derived ordering
+export const aboutNeighbors = {
+  left: PAINTINGS,
+  right: RECENT,
+}
+
+export const recentNeighbors = {
+  left: ABOUT,
+  right: TALKS,
+} 
+
+export const talksNeighbors = {
+  left: RECENT,
+  right: PAINTINGS
+}
+
+export const paintingsNeighbors = {
+  left: TALKS,
+  right: ABOUT
 }
 
 export const slideNameToIndex = slide => (

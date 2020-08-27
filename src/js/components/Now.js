@@ -12,6 +12,8 @@ import jsImage from 'assets/js_logo.png'
 import cljsImage from 'assets/clojure_logo.png'
 import catsImage from 'assets/scala_cats.png'
 
+// DEPRECATED AS OF AUG 27?
+
 const pontormoURL = 'https://en.wikipedia.org/wiki/Pontormo'
 const jsURL = 'https://redux.js.org/'
 const cljsURL = 'http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs'
