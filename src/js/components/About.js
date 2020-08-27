@@ -85,18 +85,18 @@ const PortfolioCard = () =>
       </Header>
       <Header
         color='orange'
-        style={{cursor: 'pointer'}}
+        style={{ cursor: 'pointer' }}
         onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS)}>
-          See some code.
+        See some code.
       </Header>
       <Header color='purple' href={blogURL} target='_blank'>
-          Read the blog.
+        Read the blog.
       </Header>
       <Header
         color='red'
-        style={{cursor: 'pointer'}}
+        style={{ cursor: 'pointer' }}
         onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, NOW)}>
-           What I'm doing now.
+        What I'm doing now.
       </Header>
       <Header color='green' href={mailURL} target='_blank'>
         Get in touch.
@@ -105,15 +105,21 @@ const PortfolioCard = () =>
   </Card>
 
 const About = () => (
-  <Grid stackable columns={2}>
-    <SlideNameTag color='green' icon='hand peace' content='ABOUT' />
-    <Grid.Column width={7}>
-      <ProfileCard />
-    </Grid.Column>
-    <Grid.Column>
-      <PortfolioCard />
-    </Grid.Column>
-  </Grid>
+  <Grid>
+    <Grid.Row>
+      <SlideNameTag color='green' icon='hand peace' content='ABOUT' />
+    </Grid.Row>
+    <Grid.Row>
+      <Grid stackable columns={2} padded centered>
+        <Grid.Column width={7}>
+          <ProfileCard />
+        </Grid.Column>
+        <Grid.Column width={7}>
+          <PortfolioCard />
+        </Grid.Column>
+      </Grid>
+    </Grid.Row>
+  </Grid >
 )
 
 export default () => <CenteringGrid content={<About />} />

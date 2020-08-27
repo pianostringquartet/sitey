@@ -24,7 +24,7 @@ const projectsListItems = [
     url: landschaftenGithubURL
   },
   {
-    id: 2,
+    id: 2, 
     header: 'clarifai-clj',
     description: 'Clojure library for Clarifai\'s Predict API',
     url: clarifaiClJGithubURL

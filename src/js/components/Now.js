@@ -3,6 +3,10 @@ import { List, Grid, Header, Card, Icon, Image } from 'semantic-ui-react'
 import CenteringGrid from 'utils/CenteringGrid'
 import SlideNameTag from 'utils/SlideNameTag'
 import HideOnMobile from 'utils/HideOnMobile'
+
+import { changeSlide } from '../navigation'
+import { HORIZONTAL_SLIDER_NAME, NOW, PROJECTS } from '../navigation'
+
 import pontormoImage from 'assets/pontormo-sacra-conversazione.jpg'
 import jsImage from 'assets/js_logo.png'
 import cljsImage from 'assets/clojure_logo.png'
@@ -37,8 +41,10 @@ const currentLovesListItems = [
   }
 ]
 
+
+// relaxed = 'very'
 const CurrentLovesList = ({ items }) =>
-  <List relaxed='very' size='large'>
+  <List  size='medium'>
     {items.map(item =>
       <List.Content key={item.id}>
         <br />
@@ -47,8 +53,10 @@ const CurrentLovesList = ({ items }) =>
       </List.Content>)}
   </List>
 
+// don't make fluid?
+// fluid
 const PontormoImage = () =>
-  <Image fluid src={pontormoImage} href={pontormoURL} target='_blank' />
+  <Image src={pontormoImage} href={pontormoURL} target='_blank' />
 
 const CljsImage = () =>
   <Image inline spaced src={cljsImage} href={cljsURL} target='_blank' />
@@ -59,31 +67,84 @@ const JsImage = () =>
 const CatsImage = () =>
   <Image inline spaced src={catsImage} href={catsURL} target='_blank' />
 
+
+
 const NowSlide = () =>
-  <Grid columns={2} stackable relaxed>
-    <SlideNameTag color='red' icon='hand spock' content='NOW' />
-    <Grid.Column>
-      <HideOnMobile content={<PontormoImage />} />
+  <Grid columns='equal' relaxed verticalAlign='middle' centered>
+    
+    {/* LEFT ARROW */}
+    <Grid.Column width={2}>
+      <Icon
+        name='angle left'
+        size='huge'
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS)}>
+      </Icon>
     </Grid.Column>
-    <Grid.Column>
-      <Grid>
-        <Grid.Row>
-          <Image.Group size='tiny'>
-            <JsImage />
-            <CljsImage />
-            <CatsImage />
-          </Image.Group>
-        </Grid.Row>
-        <Grid.Row >
-          <CurrentLovesList items={currentLovesListItems} />
-        </Grid.Row>
-        <Grid.Row>
-          <Header size='medium' color='red'>
-            Ich wohne in Berlin.
-          </Header>
-        </Grid.Row>
+
+    {/* CENTRAL COLUMN is itself a grid */}
+    <Grid.Column width={12}>
+      <Grid columns={2} relaxed>
+        <SlideNameTag color='red' icon='hand spock' content='NOW' />
+        <Grid.Column>
+          <HideOnMobile content={<PontormoImage />} />
+        </Grid.Column>
+        <Grid.Column>
+          <Grid>
+            <Grid.Row>
+              <Image.Group size='tiny'>
+                <JsImage />
+                <CljsImage />
+                <CatsImage />
+              </Image.Group>
+            </Grid.Row>
+            <Grid.Row >
+              <CurrentLovesList items={currentLovesListItems} />
+            </Grid.Row>
+          </Grid>
+        </Grid.Column>
       </Grid>
+    </Grid.Column>
+
+    {/* RIGHT ARROW */}
+    <Grid.Column width={2}>
+      <Icon
+        name='angle right'
+        size='huge'
+        onClick={() => changeSlide(HORIZONTAL_SLIDER_NAME, PROJECTS)}
+      >
+      </Icon>
     </Grid.Column>
   </Grid>
 
+
+
+
 export default () => <CenteringGrid content={<NowSlide />} />
+
+// PREVIOUS:
+// const NowSlide = () =>
+//   <Grid columns={2} stackable relaxed>
+//     <SlideNameTag color='red' icon='hand spock' content='NOW' />
+//     <Grid.Column>
+//       <HideOnMobile content={<PontormoImage />} />
+//     </Grid.Column>
+//     <Grid.Column>
+//       <Grid>
+//         <Grid.Row>
+//           <Image.Group size='tiny'>
+//             <JsImage />
+//             <CljsImage />
+//             <CatsImage />
+//           </Image.Group>
+//         </Grid.Row>
+//         <Grid.Row >
+//           <CurrentLovesList items={currentLovesListItems} />
+//         </Grid.Row>
+//         <Grid.Row>
+//           <Header size='medium' color='red'>
+//             Ich wohne in Berlin.
+//           </Header>
+//         </Grid.Row>
+//       </Grid>
+//     </Grid.Column>
+//   </Grid>
