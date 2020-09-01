@@ -1,31 +1,31 @@
+/* eslint-disable import/no-extraneous-dependencies */
 // showcases landschaften project etc.
 
 // need 1-2 screenshots of landschaften
 // plus a side bar explaining L and L-service
 
-import React from "react";
-import { Grid, Header, Image } from "semantic-ui-react";
+import React from 'react';
+import { Grid, Header, Image } from 'semantic-ui-react';
 
-import CenteringGrid from "utils/CenteringGrid";
-import SlideNameTag from "utils/SlideNameTag";
+import CenteringGrid from 'utils/CenteringGrid';
+import SlideNameTag from 'utils/SlideNameTag';
 
-import { recentNeighbors } from "../navigation";
+import { recentNeighbors } from '../navigation';
 
-import landschaftenExplore from "assets/landschaften_explore_2.png";
-import landschaftenCompare from "assets/landschaften_compare_2.png";
+import landschaftenExplore from 'assets/landschaften_explore_2.png';
+import landschaftenCompare from 'assets/landschaften_compare_2.png';
 
-import jsImage from "assets/js_logo.png";
-import cljsImage from "assets/clojure_logo.png";
-import haskellImage from "assets/haskell_logo.jpg";
+import jsImage from 'assets/js_logo.png';
+import cljsImage from 'assets/clojure_logo.png';
+import haskellImage from 'assets/haskell_logo.jpg';
 
-const jsURL = "https://redux.js.org/";
+const jsURL = 'https://redux.js.org/';
 
-const cljsURL =
-  "http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs";
+const cljsURL = 'http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs';
 
-const ghostwheelURL = "https://github.com/gnl/ghostwheel";
-const typescriptURL = "https://www.typescriptlang.org/";
-const servantURL = "https://docs.servant.dev/en/stable/index.html";
+const ghostwheelURL = 'https://github.com/gnl/ghostwheel';
+const typescriptURL = 'https://www.typescriptlang.org/';
+const servantURL = 'https://docs.servant.dev/en/stable/index.html';
 
 const CljsImage = () => (
   <Image src={cljsImage} href={cljsURL} target="_blank" />
@@ -46,33 +46,33 @@ const LandschaftenCompareImage = () => (
 );
 
 const landschaftenGithubURL =
-  "https://github.com/pianostringquartet/landschaften#landschaften-visual-explorer-for-paintings-and-their-concepts";
+  'https://github.com/pianostringquartet/landschaften#landschaften-visual-explorer-for-paintings-and-their-concepts';
 
 const projectsListItems = [
   {
     id: 0,
-    header: "sitey",
+    header: 'sitey',
     description:
-      "personal site with Typescript, Redux, Firebase, Fullpage.js, Semantic-ui",
-    url: "https://github.com/pianostringquartet/sitey",
+      'personal site with Typescript, Redux, Firebase, Fullpage.js, Semantic-ui',
+    url: 'https://github.com/pianostringquartet/sitey',
   },
   {
     id: 1,
-    header: "clarifai-clj",
+    header: 'clarifai-clj',
     description: "Clojure library for Clarifai's Predict API",
-    url: "https://github.com/pianostringquartet/clarifai-clj",
+    url: 'https://github.com/pianostringquartet/clarifai-clj',
   },
   {
     id: 2,
-    header: "burgmeier-scraping",
-    description: "simple, efficient webscraping in Python",
-    url: "https://github.com/pianostringquartet/burgmeier-scraping",
+    header: 'burgmeier-scraping',
+    description: 'simple, efficient webscraping in Python',
+    url: 'https://github.com/pianostringquartet/burgmeier-scraping',
   },
   {
     id: 3,
-    header: "cardy",
-    description: "flashcard app in Clojure, Clojurescript, re-frame",
-    url: "https://github.com/pianostringquartet/cardy",
+    header: 'cardy',
+    description: 'flashcard app in Clojure, Clojurescript, re-frame',
+    url: 'https://github.com/pianostringquartet/cardy',
   },
 ];
 
@@ -151,7 +151,9 @@ const RecentProject = () => (
             <Grid.Column key={project.id}>
               <Header href={project.url} target="_blank">
                 {project.header}
-                <Header.Subheader>{project.description} </Header.Subheader>
+                <Header.Subheader>
+                  {project.description}
+                </Header.Subheader>
               </Header>
             </Grid.Column>
           ))}

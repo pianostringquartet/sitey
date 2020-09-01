@@ -1,59 +1,59 @@
-import React from 'react'
-import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react'
-import profileImage from 'assets/berlin_profile.jpg'
-import CenteringGrid from 'utils/CenteringGrid'
-import SlideNameTag from 'utils/SlideNameTag'
-import HideOnMobile from 'utils/HideOnMobile'
-import { changeSlide, aboutNeighbors } from '../navigation'
-import { HORIZONTAL_SLIDER_NAME, RECENT, PAINTINGS, TALKS } from '../navigation'
+import React from 'react';
+import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react';
+import profileImage from 'assets/berlin_profile.jpg';
+import CenteringGrid from 'utils/CenteringGrid';
+import SlideNameTag from 'utils/SlideNameTag';
+import HideOnMobile from 'utils/HideOnMobile';
+import { changeSlide, aboutNeighbors } from '../navigation';
+import { HORIZONTAL_SLIDER_NAME, RECENT, PAINTINGS, TALKS } from '../navigation';
 
-export const BLOG_NAME = 'chrisclampittblog.life/'
-const linkedInURL = 'https://www.linkedin.com/in/christian-clampitt'
-const angelListURL = 'https://angel.co/christian-clampitt'
-const cvURL = 'https://chrisclampitt.life/#/cv'
-const artURL = 'https://www.instagram.com/christian.clampitt/'
-const mailURL = 'mailto:christian.clampitt@nyu.edu'
-const githubURL = 'https://github.com/pianostringquartet/'
-const blogURL = 'https://' + BLOG_NAME
+export const BLOG_NAME = 'chrisclampittblog.life/';
+const linkedInURL = 'https://www.linkedin.com/in/christian-clampitt';
+const angelListURL = 'https://angel.co/christian-clampitt';
+// const cvURL = 'https://chrisclampitt.life/#/cv'
+const cvURL = 'localhost:8080/#/cv';
+const artURL = 'https://www.instagram.com/christian.clampitt/';
+const mailURL = 'mailto:christian.clampitt@nyu.edu';
+const githubURL = 'https://github.com/pianostringquartet/';
 
 const profileListItems = [
   {
     id: 0,
     icon: 'linkedin square',
     url: linkedInURL,
-    content: 'linkedin.com/in/christian-clampitt'
+    content: 'linkedin.com/in/christian-clampitt',
   },
   {
     id: 1,
     icon: 'angellist',
     url: angelListURL,
-    content: 'angel.co/christian-clampitt'
+    content: 'angel.co/christian-clampitt',
   },
   {
     id: 2,
     icon: 'sticky note',
     url: cvURL,
-    content: 'CV'
+    content: 'CV',
   },
   {
     id: 3,
     icon: 'paint brush',
     url: artURL,
-    content: 'sketches, paintings'
+    content: 'sketches, paintings',
   },
   {
     id: 4,
     icon: 'mail',
     url: mailURL,
-    content: 'christian dot clampitt at nyu dot edu'
+    content: 'christian dot clampitt at nyu dot edu',
   },
   {
     id: 5,
     icon: 'github',
     url: githubURL,
-    content: 'github - pianostringquartet'
-  }
-]
+    content: 'github - pianostringquartet',
+  },
+];
 
 const ProfileList = ({ items }) =>
   <List animated size='small'>
@@ -64,7 +64,7 @@ const ProfileList = ({ items }) =>
           <a href={item.url} target='_blank'>{item.content}</a>
         </List.Content>
       </List.Item>)}
-  </List>
+  </List>;
 
 const ProfileCard = () =>
   <Card raised>
@@ -72,7 +72,7 @@ const ProfileCard = () =>
     <Card.Content>
       <ProfileList items={profileListItems} />
     </Card.Content>
-  </Card>
+  </Card>;
 
 const PortfolioCard = () =>
   <Card raised>
@@ -105,7 +105,7 @@ const PortfolioCard = () =>
         Get in touch.
       </Header>
     </Card.Content>
-  </Card>
+  </Card>;
 
 const About = () => (
   <Grid>
@@ -123,7 +123,7 @@ const About = () => (
       </Grid>
     </Grid.Row>
   </Grid >
-)
+);
 
 export default () => (
   <CenteringGrid
