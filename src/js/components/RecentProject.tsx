@@ -12,12 +12,17 @@ import SlideNameTag from 'utils/SlideNameTag';
 
 import { recentNeighbors } from '../navigation';
 
-import landschaftenExplore from 'assets/landschaften_explore_2.png';
-import landschaftenCompare from 'assets/landschaften_compare_2.png';
+// import landschaftenExplore from 'assets/landschaften_explore_2.png';
+// import landschaftenCompare from 'assets/landschaften_compare_2.png';
+// import jsImage from 'assets/js_logo.png';
+// import cljsImage from 'assets/clojure_logo.png';
+// import haskellImage from 'assets/haskell_logo.jpg';
 
-import jsImage from 'assets/js_logo.png';
-import cljsImage from 'assets/clojure_logo.png';
-import haskellImage from 'assets/haskell_logo.jpg';
+const landschaftenExplore = require('assets/landschaften_explore_2.png');
+const landschaftenCompare = require('assets/landschaften_compare_2.png');
+const jsImage = require('assets/js_logo.png');
+const cljsImage = require('assets/clojure_logo.png');
+const haskellImage = require('assets/haskell_logo.jpg');
 
 const jsURL = 'https://redux.js.org/';
 

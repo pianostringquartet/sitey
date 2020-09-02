@@ -11,10 +11,15 @@ import SlideNameTag from 'utils/SlideNameTag'
 
 import { paintingsNeighbors } from "../navigation";
 
-import westFacingImage from 'assets/chatfield-river-west-facing.jpg'
-import riverBendImage from 'assets/chatfield-river-bend.jpg'
-import southValleyParkImage from 'assets/south-valley-park.jpg'
-import portraitClassImage from 'assets/portrait-class.jpg'
+// import westFacingImage from 'assets/chatfield-river-west-facing.jpg'
+// import riverBendImage from 'assets/chatfield-river-bend.jpg'
+// import southValleyParkImage from 'assets/south-valley-park.jpg'
+// import portraitClassImage from 'assets/portrait-class.jpg'
+
+const westFacingImage = require('assets/chatfield-river-west-facing.jpg')
+const riverBendImage = require('assets/chatfield-river-bend.jpg')
+const southValleyParkImage = require('assets/south-valley-park.jpg')
+const portraitClassImage = require('assets/portrait-class.jpg')
 
 const WestFacingImage = () =>
     <Image inline spaced src={westFacingImage} href={InstagramLink} target='_blank' />
@@ -29,7 +34,8 @@ const PortraitClassImage = () =>
     <Image flex spaced src={portraitClassImage} href={InstagramLink} target='_blank' />
 
 // better? 
-const PaintingImage = ({ imageSrc }) =>
+type Fixme = any;
+const PaintingImage = ({ imageSrc }: Fixme) =>
     <Image inline spaced src={imageSrc} href={InstagramLink} target='_blank' />
 
 const InstagramLink = 'https://www.instagram.com/christian.clampitt/'

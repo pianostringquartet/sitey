@@ -6,7 +6,7 @@ import { Grid, Header, Divider } from "semantic-ui-react";
 import CenteringGrid from "utils/CenteringGrid";
 import SlideNameTag from "utils/SlideNameTag";
 
-import { talksNeighbors } from "../navigation.js";
+import { talksNeighbors } from "../navigation";
 
 // need to link to the hosted talks and/or blog posts
 const abstractionLayerTalkSlides =

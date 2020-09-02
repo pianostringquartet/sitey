@@ -1,7 +1,9 @@
 import React from 'react'
 import { Responsive } from 'semantic-ui-react'
 
-const HideOnMobile = ({content}) =>
+type Fixme = any;
+
+const HideOnMobile = ({content}: Fixme) =>
   <Responsive minWidth={768}>
     {content}
   </Responsive>

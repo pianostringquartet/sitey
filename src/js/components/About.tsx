@@ -1,6 +1,14 @@
 import React from 'react';
-import { List, Header, Grid, Card, Icon, Image } from 'semantic-ui-react';
-import profileImage from 'assets/berlin_profile.jpg';
+import { List, Header, Grid, Card, Image, SemanticICONS } from 'semantic-ui-react';
+
+// TODO: find a better approach for this import:
+// import profileImage from 'assets/berlin_profile.jpg';
+// import profileImage from './public/assets/berlin_profile.jpg';
+// import profileImage from '../../../public/assets/berlin_profile.jpg';
+// import * as profileImage from '../../../public/assets/berlin_profile.jpg';
+const profileImage: string = require('assets/berlin_profile.jpg');
+// import profileImage from '' // '../..p/berlin_profile.jpg';
+
 import CenteringGrid from 'utils/CenteringGrid';
 import SlideNameTag from 'utils/SlideNameTag';
 import HideOnMobile from 'utils/HideOnMobile';
@@ -11,12 +19,19 @@ export const BLOG_NAME = 'chrisclampittblog.life/';
 const linkedInURL = 'https://www.linkedin.com/in/christian-clampitt';
 const angelListURL = 'https://angel.co/christian-clampitt';
 // const cvURL = 'https://chrisclampitt.life/#/cv'
-const cvURL = 'localhost:8080/#/cv';
+const cvURL = 'http://localhost:8080/#/cv';
 const artURL = 'https://www.instagram.com/christian.clampitt/';
 const mailURL = 'mailto:christian.clampitt@nyu.edu';
 const githubURL = 'https://github.com/pianostringquartet/';
 
-const profileListItems = [
+interface ProfileItem {
+  id: number,
+  icon: SemanticICONS,
+  url: string,
+  content: string,
+}
+
+const profileListItems: ProfileItem[] = [
   {
     id: 0,
     icon: 'linkedin square',
@@ -55,7 +70,7 @@ const profileListItems = [
   },
 ];
 
-const ProfileList = ({ items }) =>
+const ProfileList = ( { items } : {items : ProfileItem[]}) =>
   <List animated size='small'>
     {items.map(item =>
       <List.Item key={item.id}>

@@ -1,6 +1,7 @@
 {
   "name": "posty",
   "devDependencies": {
+    "@types/react-typist": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
     "babel-cli": "^6.26.0",

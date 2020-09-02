@@ -6,7 +6,43 @@
         "moduleResolution": "node",
         "allowSyntheticDefaultImports": true,
 
+        // To use Webpack source paths
+        // "baseUrl": ".",
+        // "paths": {
+        //     "appSrc/*": [
+        //         "src/*"
+        //     ]
+        // },
+        // "baseUrl": ".",
+        // "paths": {
+        //     "@/*": ["app/*"]
+        // },
 
+// how this actually works
+        // https://www.typescriptlang.org/docs/handbook/module-resolution.html#base-url
+        "baseUrl": ".",
+        "paths": {
+
+            // not needed?
+            "@/*": [
+                "src/main/*"
+            ],
+            // works because 
+            "utils/*": [
+                "src/js/components/utils/*"
+            ],
+            "components/*": [
+                "src/js/components/*"
+            ],
+
+            // does not seem
+            "assets/*": [
+                "public/assets/*"
+            ]
+
+
+        },
+        
         "outDir": "./dist/", // path to output directory
         "sourceMap": true, // allow sourcemap support
         "strictNullChecks": true, // enable strict null checks as a best practice

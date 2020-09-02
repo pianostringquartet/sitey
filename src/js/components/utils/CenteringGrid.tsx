@@ -2,10 +2,18 @@ import React from 'react'
 import { Grid, Icon, } from 'semantic-ui-react'
 
 import { changeSlide } from '../../navigation'
-import { HORIZONTAL_SLIDER_NAME, PROJECTS } from '../../navigation'
+import { HORIZONTAL_SLIDER_NAME } from '../../navigation'
+
+type Fixme = any;
+
+interface Slide {
+  content: Fixme,
+  leftSlide: string,
+  rightSlide: string,
+}
 
 // would also need to take 'slide to the left,' and 'slide to the right'
-const CenteringGrid = ({ content, leftSlide, rightSlide }) => (
+const CenteringGrid = ({ content, leftSlide, rightSlide } : Slide) => (
   <Grid
     verticalAlign='middle'
     columns={3}

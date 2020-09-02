@@ -5,12 +5,12 @@ import Paintings from 'components/Paintings';
 import Talks from 'components/Talks';
 import RecentProject from 'components/RecentProject';
 
-export const ABOUT = 'about';
-export const PAINTINGS = 'paintings';
-export const TALKS = 'talks';
-export const RECENT = 'recent';
+export const ABOUT: string = 'about';
+export const PAINTINGS: string = 'paintings';
+export const TALKS: string = 'talks';
+export const RECENT: string = 'recent';
 
-export const HORIZONTAL_SLIDER_NAME = 'horizontalSlider1';
+export const HORIZONTAL_SLIDER_NAME: string = 'horizontalSlider1';
 
 const HORIZONTAL_SLIDES = {
   [ABOUT]: <About />,
@@ -40,7 +40,7 @@ export const paintingsNeighbors = {
   right: ABOUT,
 };
 
-export const slideNameToIndex = (slide) => (
+export const slideNameToIndex = (slide: string) => (
   Object.keys(HORIZONTAL_SLIDES).indexOf(slide)
 );
 
@@ -54,7 +54,7 @@ export const horizontalSlides = (
       </Slide>
     )));
 
-export const changeSlide = (horizontalSliderName, slide) => Fullpage.changeHorizontalSlide(
+export const changeSlide = (horizontalSliderName: string, slide: string) => Fullpage.changeHorizontalSlide(
   horizontalSliderName,
   slideNameToIndex(slide),
 );
