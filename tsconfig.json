@@ -1,0 +1,30 @@
+{
+    "compilerOptions": {
+        "module": "esnext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": ".",
+        "paths": {
+            "utils/*": [
+                "src/js/components/utils/*"
+            ],
+            "components/*": [
+                "src/js/components/*"
+            ],
+            "assets/*": [
+                "public/assets/*"
+            ]
+        },
+        "outDir": "./dist/", // path to output directory
+        "sourceMap": true, // allow sourcemap support
+        "jsx": "react", // use typescript to transpile jsx to js
+        "target": "es5", // specify ECMAScript target version
+        "allowJs": true, // allow a partial TypeScript and JavaScript codebase
+        "noImplicitAny": true,
+        "noImplicitThis": true,    
+        "strict": true, // enable all 'strict family options'
+    },
+    "include": [
+        "./src/"
+    ]
+}

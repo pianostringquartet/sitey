@@ -3,6 +3,9 @@ import { Fullpage, HorizontalSlider, Slide } from 'fullpage-react'
 import IntroMessage from 'components/IntroMessage'
 import { HORIZONTAL_SLIDER_NAME, horizontalSlides } from '../navigation'
 
+// TODO: Type the deprecated-but-free fullpage-react, or upgrade to paid version
+type Fixme = any;
+
 const slides = [
   <Slide> <IntroMessage /> </Slide>, // vertical slide
   <HorizontalSlider // horizontal slides
@@ -12,7 +15,7 @@ const slides = [
    />
 ]
 
-const FullpageApp = ({slides}) =>
+const FullpageApp = ({slides} : Fixme) =>
   <Fullpage
     scrollSensitivity={7}
     touchSensitivity={7}
