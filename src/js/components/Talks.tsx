@@ -1,5 +1,3 @@
-// Replaces 'projects' with 'talks and blog'
-
 import React from "react";
 import { Grid, Header, Divider } from "semantic-ui-react";
 
@@ -8,17 +6,12 @@ import SlideNameTag from "utils/SlideNameTag";
 
 import { talksNeighbors } from "../navigation";
 
-// need to link to the hosted talks and/or blog posts
-const abstractionLayerTalkSlides =
-  "https://drive.google.com/file/d/1MCxrZi_p_UA3gCdmLn-PXP7RTuEUx2O9/view?usp=sharing";
+const abstractionLayerBlogPost =
+  "https://pianostringquartet.github.io/jekyll/update/2018/05/01/how-to-do-an-abstraction-layer.html";
 
 const reduxSystemsTalkSlides =
   "https://drive.google.com/file/d/1kNqOEuD_R5njWF-U9vEHPi8Y-1HM7UQ0/view?usp=sharing";
 
-
-
-//   'current loves'
-// also add back the Bret Victor?
 const projectsListItems = [
   {
     id: 0,
@@ -40,58 +33,67 @@ const projectsListItems = [
   },
 ];
 
-
-
 const TalksSlide = () => (
   <Grid>
     <SlideNameTag
-      color="red"
+      color="purple"
       icon="hand spock"
       content="TALKS AND BLOG POSTS"
     />
 
-    {/* TALKS ROW */}
+    {/* TALKS */}
     <Grid.Row>
       <Grid columns={2}>
         <Grid.Column>
-          <Header>
+          <Header size="large">
             How to write an abstraction layer
+            <Header.Subheader>
+              Solving problems with concepts, not just code.
+            </Header.Subheader>
           </Header>
-          <Header.Subheader>
-            Solving problems with concepts, not just code
-          </Header.Subheader>
+
           <Header.Subheader>
             Lessons from writing API integrations at
-            ProfitWell/PriceIntelligently
+            ProfitWell/PriceIntelligently:
           </Header.Subheader>
-          <Header.Subheader>
-            Slides from talk at Berlin OpenTechSchool Meetup
-          </Header.Subheader>
+
+          <Header size="small" href={abstractionLayerBlogPost} color="blue">
+            Read the blog post.
+          </Header>
         </Grid.Column>
 
         <Grid.Column>
-          <Header>
+          <Header size="large">
             Redux systems from 30k feet
+            <Header.Subheader>
+              Design decisions in redux systems
+            </Header.Subheader>
           </Header>
-          <Header.Subheader>Design decisions in redux systems</Header.Subheader>
           <Header.Subheader>
-            experiences from re-frame, redux.js, Scala Diode, and writing a
-            redux system for Dart/Flutter
+            Lessons from re-frame, redux.js, and writing a redux system for
+            Dart/Flutter:
           </Header.Subheader>
-          <Header.Subheader>
-            Slides from talk at Berlin Clojure Meetup
-          </Header.Subheader>
+          <Header size="small" href={reduxSystemsTalkSlides} color="blue">
+            View slides from the Berlin Clojure Meetup talk.
+          </Header>
         </Grid.Column>
       </Grid>
     </Grid.Row>
     <Divider />
+
+    {/* INSPIRATIONS */}
     <Grid.Row>
       <Grid columns={3} divided>
         <Header>Inspirations:</Header>
         <Grid.Row>
           {projectsListItems.map((project) => (
             <Grid.Column key={project.id}>
-              <Header href={project.url} target="_blank">
+              <Header
+                href={project.url}
+                target="_blank"
+                color="green"
+                size="medium"
+              >
                 {project.header}
                 <Header.Subheader>{project.description} </Header.Subheader>
               </Header>

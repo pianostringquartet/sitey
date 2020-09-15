@@ -1,64 +1,51 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// showcases landschaften project etc.
-
-// need 1-2 screenshots of landschaften
-// plus a side bar explaining L and L-service
-
 import React from 'react';
 import { Grid, Header, Image } from 'semantic-ui-react';
-
 import CenteringGrid from 'utils/CenteringGrid';
 import SlideNameTag from 'utils/SlideNameTag';
 
 import { recentNeighbors } from '../navigation';
 
-// import landschaftenExplore from 'assets/landschaften_explore_2.png';
-// import landschaftenCompare from 'assets/landschaften_compare_2.png';
-// import jsImage from 'assets/js_logo.png';
-// import cljsImage from 'assets/clojure_logo.png';
-// import haskellImage from 'assets/haskell_logo.jpg';
-
 const landschaftenExplore = require('assets/landschaften_explore_2.png');
 const landschaftenCompare = require('assets/landschaften_compare_2.png');
-const jsImage = require('assets/js_logo.png');
 const cljsImage = require('assets/clojure_logo.png');
 const haskellImage = require('assets/haskell_logo.jpg');
 
-const jsURL = 'https://redux.js.org/';
-
 const cljsURL = 'http://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs';
+const haskellURL = 'https://www.haskell.org/';
 
-const ghostwheelURL = 'https://github.com/gnl/ghostwheel';
-const typescriptURL = 'https://www.typescriptlang.org/';
-const servantURL = 'https://docs.servant.dev/en/stable/index.html';
+const landschaftenGithubURL =
+  "https://github.com/pianostringquartet/landschaften#landschaften-visual-explorer-for-paintings-and-their-concepts";
+const landschaftenServiceGithubURL =
+  "https://github.com/pianostringquartet/landschaften-service";
+
 
 const CljsImage = () => (
   <Image src={cljsImage} href={cljsURL} target="_blank" />
 );
 
-const JsImage = () => (
-  <Image spaced src={jsImage} href={jsURL} target="_blank" />
+const HaskellImage = () => (
+  <Image src={haskellImage} href={haskellURL} target="_blank" />
 );
 
-const HaskellImage = () => <Image src={haskellImage} target="_blank" />;
-
 const LandschaftenExploreImage = () => (
-  <Image src={landschaftenExplore} target="_blank" />
+  <Image src={landschaftenExplore} href={landschaftenGithubURL} target="_blank" />
 );
 
 const LandschaftenCompareImage = () => (
-  <Image src={landschaftenCompare} target="_blank" />
+  <Image
+    src={landschaftenCompare}
+    href={landschaftenServiceGithubURL}
+    target="_blank"
+  />
 );
 
-const landschaftenGithubURL =
-  'https://github.com/pianostringquartet/landschaften#landschaften-visual-explorer-for-paintings-and-their-concepts';
 
 const projectsListItems = [
   {
     id: 0,
     header: 'sitey',
     description:
-      'personal site with Typescript, Redux, Firebase, Fullpage.js, Semantic-ui',
+      'typescript, redux.js, firebase, fullpage.js, semantic-ui',
     url: 'https://github.com/pianostringquartet/sitey',
   },
   {
@@ -81,9 +68,12 @@ const projectsListItems = [
   },
 ];
 
+
+// TODO: Use Semantic-UI-React's Item element for simpler, more readable layout
 const RecentProject = () => (
   <Grid>
-    <SlideNameTag color="red" icon="hand spock" content="RECENT PROJECTS" />
+    <SlideNameTag color="orange" icon="hand spock" content="RECENT PROJECTS" />
+
     {/* LANDSCHAFTEN ROW */}
     <Grid.Row>
       <Grid.Column width={16}>
@@ -96,14 +86,13 @@ const RecentProject = () => (
             <Grid.Column>
               <Header>
                 landschaften
-                <Header.Subheader>
+                <Header.Subheader href={landschaftenGithubURL}>
                   visual explorer for paintings and their concepts
                 </Header.Subheader>
               </Header>
-
               <Grid columns={2}>
                 <Grid.Column>
-                  <Header.Subheader>
+                  <Header.Subheader href={landschaftenGithubURL}>
                     Clojurescript, Leiningen, re-frame, ghostwheel (spec)
                   </Header.Subheader>
                 </Grid.Column>
@@ -124,15 +113,13 @@ const RecentProject = () => (
             <Grid.Column>
               <Header>
                 landschaften-service
-                <Header.Subheader>
+                <Header.Subheader href={landschaftenServiceGithubURL}>
                   service-backend for landschaften
                 </Header.Subheader>
               </Header>
-
-              {/* description and logo row */}
               <Grid columns={2}>
                 <Grid.Column>
-                  <Header.Subheader>
+                  <Header.Subheader href={landschaftenServiceGithubURL}>
                     Haskell, Stack, Servant (api), postgres
                   </Header.Subheader>
                 </Grid.Column>
@@ -148,17 +135,15 @@ const RecentProject = () => (
       </Grid.Column>
     </Grid.Row>
 
+    {/* OTHER PROJECTS */}
     <Grid.Row>
-      {/* MISC PROJECTS */}
       <Grid columns={4} divided>
         <Grid.Row>
           {projectsListItems.map((project) => (
             <Grid.Column key={project.id}>
               <Header href={project.url} target="_blank">
                 {project.header}
-                <Header.Subheader>
-                  {project.description}
-                </Header.Subheader>
+                <Header.Subheader>{project.description}</Header.Subheader>
               </Header>
             </Grid.Column>
           ))}

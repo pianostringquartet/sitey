@@ -22,7 +22,7 @@ const storageURL: string = 'gs://sitey-app.appspot.com/'
 const storageCV = firebase.storage().refFromURL(storageURL)
 
 const CV_FILENAME: string = 'chris_clampitt_cv.md'
-const ERROR_MESSAGE: string = "### There was an error retrieving the CV.";
+const ERROR_MESSAGE: string = "### There was an error retrieving the CV. Please reach out to me for a copy :-)";
 
 const fetchCV = (cvFilename: string, storageRef: firebase.storage.Reference) =>
   storageRef
@@ -37,7 +37,6 @@ fetchCV(CV_FILENAME, storageCV)
     .then((cvFile: string) => dispatch(saveCV(cvFile)))
 };
 
-// State logic below
 interface CVState {
     cv: string
 }
